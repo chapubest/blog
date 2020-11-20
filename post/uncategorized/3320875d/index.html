@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="chapu&#39;s blog">
+  <meta name="author" content="Yang Xu">
+  <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
+  <title>js中的奇怪知识 - 茶铺的小站</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"chapu.gitee.io","root":"/blog/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>茶铺的小站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="js中的奇怪知识">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-07 10:29" pubdate>
+        2020年9月7日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js中的奇怪知识</h1>
+            
+            <div class="markdown-body">
+              <h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>先看荔枝：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(a);
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;hello&quot;</span>;</code></pre></div>
+<p>上面的运行结果会输出<code>undefined</code>，这是因为，js会先解析代码，并将所有变量的声明语句提升到代码头部执行，这就是变量提升。<br>下面的代码与上面相同：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a;
+<span class="hljs-built_in">console</span>.log(a);
+a = <span class="hljs-string">&quot;hello&quot;</span>;</code></pre></div>
+<blockquote>
+<p>js中函数也被视为一种值，函数的声明语句同样也会被提升到代码头部执行。  </p>
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title="!!"></a><code>!!</code></h3><p>!! 可以快速判断值是否为0、null、’’和undefined</p>
+<h3 id="function前的运算符"><a href="#function前的运算符" class="headerlink" title="function前的运算符"></a>function前的运算符</h3><p>()可以让函数声明变成表达式从而达到立即执行的目的，一元运算符同样可以。<br>下面的方法都可以达到同样的目的，返回值略有差异  </p>
+<div class="hljs"><pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;IIFE&#x27;</span>)&#125;)()
+<span class="hljs-comment">// return undefined</span>
++<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;IIFE&#x27;</span>)&#125;()
+<span class="hljs-comment">// return NaN</span>
+-<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;IIFE&#x27;</span>)&#125;()
+<span class="hljs-comment">// return NaN</span>
+~<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;IIFE&#x27;</span>)&#125;()
+<span class="hljs-comment">// return -1</span>
+!<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;IIFE&#x27;</span>)&#125;()
+<span class="hljs-comment">// return true</span></code></pre></div>
+
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>js允许语句或代码块前有标签，用于定位，跳转到程序的指定位置，与break和continue配合使用。<br>用法:  </p>
+<div class="hljs"><pre><code class="hljs js">&lt;label name&gt;:
+    语句/代码块</code></pre></div>
+<p>荔枝：  </p>
+<div class="hljs"><pre><code class="hljs js">top:
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; j++) &#123;
+            <span class="hljs-keyword">if</span>(i === <span class="hljs-number">2</span> &amp;&amp; j === <span class="hljs-number">2</span>)
+                <span class="hljs-keyword">break</span> top;
+            <span class="hljs-built_in">console</span>.log(i, j);
+        &#125;
+    &#125;</code></pre></div>
+<p>当满足if条件时，break就会跳出双循环。  </p>
+<h3 id="null与undefined"><a href="#null与undefined" class="headerlink" title="null与undefined"></a>null与undefined</h3><p>null与undefined在进行布尔运算时都表示为false，所以<code>null == undefined</code>会返回true，其实而在说不一样的。<br>null表示无、空，它是一个对象，在转换为Number时为0。而undefined表示未定义，它转换为Number时为NaN。<br>例如一个函数有一个参数，你可以传null，此时该参数有值，只不过这个值是空的；如果你什么值都不传，此时这个参数就是未定义的。  </p>
+<h3 id="boolean的自动转换"><a href="#boolean的自动转换" class="headerlink" title="boolean的自动转换"></a>boolean的自动转换</h3><p>在需要布尔值时，以下6种值会转换为false，其他值会视为true：  </p>
+<ol>
+<li>undefined  </li>
+<li>null  </li>
+<li>false  </li>
+<li>0  </li>
+<li>NaN  </li>
+<li>“”或’’（空串）<br>需要注意的是，[]和{}对于的布尔值是true并不是false。  </li>
+</ol>
+<h3 id="没有整数"><a href="#没有整数" class="headerlink" title="没有整数"></a>没有整数</h3><p>js中其实所有数字都是以64位浮点数形式存储，因此你会发现1和1.0是相同的：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-number">1</span> === <span class="hljs-number">1.0</span> <span class="hljs-comment">// true</span></code></pre></div>
+<p>需要注意的是，由于浮点数并不是精确值，涉及小数比较时需要特别小心。<br>有些运算只有整数，此时js会将64位浮点数转换为32位整数。  </p>
+<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><p>js中一个数大于等于2的1024次方，会发生正向溢出，即返回Infinity。<br>如果一个数小于等于2的-1075次方，会发生负向溢出，即返回0。<br>同时Number对象提供MAX_VALUE和MIN_VALUE属性表示具体的最大值和最小值。<br>js中数值可使用科学计数法，例如：</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-number">123e3</span> <span class="hljs-comment">// 123000</span>
+<span class="hljs-number">123E3</span> <span class="hljs-comment">// 123000</span></code></pre></div>
+<blockquote>
+<p>如果一个数，小数点前数字位数大于21或者小数点后零多于5个，会自动使用科学计算法。  </p>
+</blockquote>
+<h3 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h3><p>js支持4种进制：  </p>
+<ol>
+<li>十进制 没有前导0  </li>
+<li>二进制 有前缀0b或0B  </li>
+<li>八进制 有前缀0o或0O（或者0，该方法浏览器兼容，但是已在ES6中废除）  </li>
+<li>十六进制 有前缀0x或0X  </li>
+</ol>
+<h3 id="0和-0"><a href="#0和-0" class="headerlink" title="+0和-0"></a>+0和-0</h3><p>+0和-0在几乎所有的场合都相同，除了它们作为分母时，荔枝：  </p>
+<div class="hljs"><pre><code class="hljs js">+<span class="hljs-number">0</span> === -<span class="hljs-number">0</span> <span class="hljs-comment">//true</span>
+<span class="hljs-number">1</span> / +<span class="hljs-number">0</span> === <span class="hljs-number">1</span> /-<span class="hljs-number">0</span> <span class="hljs-comment">// false</span></code></pre></div>
+
+<h3 id="NaN和Infinity"><a href="#NaN和Infinity" class="headerlink" title="NaN和Infinity"></a>NaN和Infinity</h3><p>NaN表示非数字，即not a number，它依旧是Number类型。NaN是不等于<strong>任何值</strong>，举个荔枝：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-literal">NaN</span> === <span class="hljs-literal">NaN</span> <span class="hljs-comment">// false</span></code></pre></div>
+<p>比较特殊的是<code>0 / 0</code>会得到NaN。<br>Infinity表示无穷，正值太大或负值太小，一些奇怪的计算结果：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-number">0</span> * <span class="hljs-literal">Infinity</span> <span class="hljs-comment">// NaN</span>
+<span class="hljs-number">0</span> / <span class="hljs-literal">Infinity</span> <span class="hljs-comment">// 0</span>
+<span class="hljs-literal">Infinity</span> / <span class="hljs-number">0</span> <span class="hljs-comment">// Infinity</span>
+<span class="hljs-literal">Infinity</span> - <span class="hljs-literal">Infinity</span> <span class="hljs-comment">// NaN</span>
+<span class="hljs-literal">Infinity</span> / <span class="hljs-literal">Infinity</span> <span class="hljs-comment">// NaN</span></code></pre></div>
+<blockquote>
+<p>null在与Infinity进行计算时，会转换为0；undefined在与Infinity计算时，都返回NaN。  </p>
+</blockquote>
+<h3 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h3><p>with的作用是在操作一个对象的多个属性时，可以书写方便：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = &#123;
+    p1: <span class="hljs-number">1</span>,
+    p2: <span class="hljs-number">2</span>
+&#125;;
+<span class="hljs-keyword">with</span> (obj) &#123;
+    p1 = <span class="hljs-number">4</span>;
+    p2 = <span class="hljs-number">5</span>;
+&#125;</code></pre></div>
+
+<h3 id="delete语句"><a href="#delete语句" class="headerlink" title="delete语句"></a>delete语句</h3><p>delete可以删除对象自身的属性，删除成功会返回true。<br>delete也可以删除数组成员，形成空位，但是不影响length属性。  </p>
+<h3 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h3><ul>
+<li>switch语句后的表达式与case后的内容进行比较时采用<code>===</code></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/js/">js</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/post/uncategorized/1986879b/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git中容易搞错的命令</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/post/uncategorized/de88c4c0/">
+                        <span class="hidden-mobile">eval和JSON.parse</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "CrA6J2uslOlguiRQgSjT72he-gzGzoHsz",
+          app_key: "Q2oE1R6yBt353jiWMp4FNQsH",
+          placeholder: "发条友善的评论吧（支持md格式）...",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: true,
+          emojiCDN: "//i0.hdslb.com/bfs/emote/",
+          emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div>&copy;2020 🍊 <a href="/" rel="nofollow noopener"><span>Yang Xu</span></a></div> <div> 由 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>  强力驱动 | 主题 -  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+</body>
+</html>
