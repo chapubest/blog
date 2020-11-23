@@ -39,7 +39,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"chapu.gitee.io","root":"/blog/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"chapu.gitee.io","root":"/blog/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"CrA6J2uslOlguiRQgSjT72he-gzGzoHsz","app_key":"Q2oE1R6yBt353jiWMp4FNQsH","server_url":null}}};
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
@@ -186,6 +186,55 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/3320875d/">js中的奇怪知识</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/3320875d/">
+          
+          
+            
+          
+          变量提升先看荔枝：  
+console.log(a);
+var a = &quot;hello&quot;;
+上面的运行结果会输出undefined，这是因为，js会先解析代码，并将所有变量的声明语句提升到代码头部执行，这就是变量提升。下面的代码与上面相同：  
+var a;
+console.log(a);
+a = &quot;hello&quot;;
+
+js中函数也被视为一种值，函数的声明语句同
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-07 10:29" pubdate>
+              2020-09-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/js/">js</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
   <div class="row mx-auto index-card">
     
@@ -658,7 +707,7 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <div>&copy;2020 🍊 <a href="/" rel="nofollow noopener"><span>Yang Xu</span></a></div> <div> 由 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>  强力驱动 | 主题 -  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> </div> 
+     <div>&copy;2020 🍊 <a href="" rel="nofollow noopener"><span>Yang Xu</span></a></div> <div> 由 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>  强力驱动 | 主题 -  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> </div> 
   </div>
   
   <div class="statistics">
@@ -667,21 +716,22 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
 
     
       
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
             总访问量 
-            <span id="busuanzi_value_site_pv"></span>
+            <span id="leancloud-site-pv"></span>
              次
           </span>
       
       
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
             总访客数 
-            <span id="busuanzi_value_site_uv"></span>
+            <span id="leancloud-site-uv"></span>
              人
           </span>
       
+
     
   </div>
 
@@ -737,7 +787,7 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
 
 
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer src="/blog/js/leancloud.js" ></script>
 
 
 
@@ -777,6 +827,19 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
 
 
 
@@ -785,5 +848,5 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
 
 
 
-</body>
+<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><!-- hexo injector body_end end --></body>
 </html>
