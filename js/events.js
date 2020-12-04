@@ -102,5 +102,71 @@ Fluid.events = {
         easing   : 'swing'
       });
     });
+  },
+
+  registerBackToTopEvent: function() {
+    var topArrow = $('#back-to-top');
+    if (!topArrow) {
+      return;
+    }
+    var isMobile = function() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    };
+    var isShow = false;
+    var lock = false;
+    // 监听点击事件
+    if (isMobile()) {
+      topArrow.on("touchstart", function(){
+        topArrow.addClass("active");
+      });
+      topArrow.on("touchend", function(){
+        topArrow.removeClass("active");
+      });
+    } else {
+      topArrow.hover(function(){
+        topArrow.addClass("active");
+      }, function(){
+        topArrow.removeClass("active");
+      });
+    }
+    // Display
+    var headerHeight = $('#board').offset().top;
+    Fluid.utils.listenScroll(function() {
+      var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+      if (lock) return;
+      if (scrollHeight >= headerHeight) {
+        if (!isShow) {
+          topArrow.addClass("load");
+          isShow = true;
+        }
+      } else {
+        if (isShow) {
+          topArrow.removeClass("load");
+          isShow = false;
+        }
+      }
+    });
+    // Click
+    topArrow.on('click', function() {
+      lock = true;
+      topArrow.addClass("leaving");
+      $("html, body").animate({
+        scrollTop: 0
+      }, 800);
+      setTimeout(function() {
+        topArrow.removeClass("load");
+      }, 800);
+      setTimeout(function() {
+        topArrow.removeClass("leaving").addClass("leaved");
+      }, 400);
+      setTimeout(function() {
+        topArrow.addClass("wind-blowing");
+      }, 200);
+      setTimeout(function() {
+        isShow = false,
+        lock = false;
+        topArrow.removeClass("leaved wind-blowing");
+      }, 1400);
+    });
   }
 };

@@ -2,7 +2,20 @@
 
 <!DOCTYPE html>
 <html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<!--
+             -. .
+       _____   ',' ,
+     ,'     ,'   ', ',
+   ,'     ,'      |  |
+   \       \       |  |
+     \ /^\   \    ,' ,'
+           \   \ ,' ,'      L'Internationale,
+     / ~-.___\.-'  ,'            Sera le genre humain.
+   /   .______.- ~ \
+ /   /'          \   \
+ \./               \/'
 
+-->
 
 
 <head>
@@ -196,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      998 字
+      1k 字
     </span>
   
 
@@ -406,8 +419,15 @@ git push origin :refs/tags/&lt;tag名称&gt;</code></pre></div>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --graph</code></pre></div>
 
-<h3 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title="gitignore文件"></a><code>gitignore</code>文件</h3><ul>
-<li>创建<code>gitignore</code>文件  </li>
+<ul>
+<li><p>查看所有历史操作记录<br>该命令可以查看<code>commitid</code>常用来进行恢复</p>
+<div class="hljs"><pre><code class="hljs bash">git reflog
+
+<span class="hljs-comment"># 搭配reset操作</span>
+git reset --hard &lt;commitid&gt;</code></pre></div>
+<h3 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title="gitignore文件"></a><code>gitignore</code>文件</h3></li>
+<li><p>创建<code>gitignore</code>文件  </p>
+</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">touch .gitignore</code></pre></div>
 
@@ -511,9 +531,10 @@ git push origin :refs/tags/&lt;tag名称&gt;</code></pre></div>
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
+      </a> -->
+      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
     
 
     
@@ -692,5 +713,5 @@ git push origin :refs/tags/&lt;tag名称&gt;</code></pre></div>
 
 
 
-<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><!-- hexo injector body_end end --></body>
+<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><script src="/blog/js/auto-gray.js"></script><script src="/blog/js/when-blur.js"></script><!-- hexo injector body_end end --></body>
 </html>

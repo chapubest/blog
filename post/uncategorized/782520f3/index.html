@@ -2,7 +2,20 @@
 
 <!DOCTYPE html>
 <html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<!--
+             -. .
+       _____   ',' ,
+     ,'     ,'   ', ',
+   ,'     ,'      |  |
+   \       \       |  |
+     \ /^\   \    ,' ,'
+           \   \ ,' ,'      L'Internationale,
+     / ~-.___\.-'  ,'            Sera le genre humain.
+   /   .______.- ~ \
+ /   /'          \   \
+ \./               \/'
 
+-->
 
 
 <head>
@@ -196,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      302 字
+      1k 字
     </span>
   
 
@@ -206,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      12
        分钟
     </span>
   
@@ -240,48 +253,90 @@
             
             <div class="markdown-body">
               <p>❀持续更新❀</p>
-<p>npm 是node的标准包管理工具。<br>node项目开发往往会使用npm来管理依赖，当然你也可以使用其他工具，例如<a href="">yarn</a>。  </p>
-<p>初始化一个node项目：</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 生成一个package.json文件</span>
-npm init</code></pre></div>
+<blockquote>
+<p>npm是node的标准包管理工具。<br>node项目开发往往会使用npm来管理依赖，当然你也可以使用其他包管理器，例如<a target="_blank" rel="noopener" href="https://yarn.bootcss.com/">yarn</a>。 </p>
+</blockquote>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-amp-更新"><a href="#安装-amp-更新" class="headerlink" title="安装&amp;更新"></a>安装&amp;更新</h2><p>安装node时会自动安装npm。如果你还未安装node，请先安装node。<br>npm的更新频率往往会比node高，你可以通过以下命令来检查npm版本：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm -v
+<span class="hljs-comment"># output&gt;&gt;6.14.8</span></code></pre></div>
+<p>你可以通过以下命令安装最新版本</p>
+<div class="hljs"><pre><code class="hljs bash">npm install npm@latest -g</code></pre></div>
 
-<p>安装包常用命令：  </p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 安装项目中的包</span>
-npm install
-
-<span class="hljs-comment"># 在生产环境下</span>
-npm install --production
-
-<span class="hljs-comment"># 安装包，该操作会将包安装到当前文件夹中的node_modules文件中，保存到生产环境（dependencies）</span>
-npm install &lt;包名&gt;
+<h1 id="初始化-amp-使用package-json文件"><a href="#初始化-amp-使用package-json文件" class="headerlink" title="初始化&amp;使用package.json文件"></a>初始化&amp;使用<code>package.json</code>文件</h1><p>一个<code>package.json</code>文件会列出项目所依赖的软件包，并且可以通过<strong>语义化的规则</strong>来控制软件包的版本，这十分有利于项目的合作和共享。<br>一个<code>package.json</code>文件必须拥有<code>&quot;name&quot;</code>和<code>&quot;version&quot;</code>。<br>你可以通过下面的命令在当前目录生成<code>package.json</code>文件:  </p>
+<div class="hljs"><pre><code class="hljs bash">npm init</code></pre></div>
+<p>该命令可以使用 <code>--yes</code> 标志，根据当前目录信息生成默认值。  </p>
+<div class="hljs"><pre><code class="hljs bash">npm init --yes
 <span class="hljs-comment"># 效果同上</span>
-npm install &lt;包名&gt; --save
-
-<span class="hljs-comment"># 安装包，同时保存到开发环境（devDependencies）</span>
-npm install &lt;包名&gt; --save-dev
-<span class="hljs-comment"># 效果同上</span>
-npm install &lt;包名&gt; -D
-
-<span class="hljs-comment"># 安装包的对应版本 x.x.x</span>
-npm install &lt;包名@版本号&gt;
-
-<span class="hljs-comment"># 全局安装包</span>
-npm install -g &lt;包名&gt;
-<span class="hljs-comment"># 效果同上</span>
-npm install --global &lt;包名&gt;
-
-<span class="hljs-comment"># 获取全局安装的路径</span>
-npm root -g</code></pre></div>
-
-<p>删除包的大部分操作与安装类似，只需要将<code>install</code>变成<code>uninstall</code>：  </p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 删除当前项目文件所有依赖</span>
-<span class="hljs-comment"># 可用性存疑</span>
-npm uninstall *</code></pre></div>
-
-<p>你可以在package.json文件中指定一些任务，通过以下方式运行：  </p>
+npm init -y</code></pre></div>
+<p>你可以在<code>package.json</code>文件中指定一些任务，通过以下方式运行：  </p>
 <div class="hljs"><pre><code class="hljs bash">npm run &lt;任务名&gt;</code></pre></div>
 
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/">node官方文档</a></p>
+<h1 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h1><h2 id="关于依赖项"><a href="#关于依赖项" class="headerlink" title="关于依赖项"></a>关于依赖项</h2><p>依赖项有以下两类：  </p>
+<ol>
+<li><code>dependencies</code>: 项目在<strong>生产环境</strong>下需要的软件包。  </li>
+<li><code>devDependencies</code>: 仅在<strong>开发和测试环境</strong>下需要的软件包。  </li>
+</ol>
+<h2 id="安装本地包"><a href="#安装本地包" class="headerlink" title="安装本地包"></a>安装本地包</h2><blockquote>
+<p>该操作会将包安装到当前文件夹中的node_modules文件中  </p>
+</blockquote>
+<p>你可以通过下面的方式将依赖项添加到<code>package.json</code>的<code>dependencies</code>：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm install &lt;包名&gt; --save
+<span class="hljs-comment"># 效果同上</span>
+npm install &lt;包名&gt;
+<span class="hljs-comment"># 安装包的对应版本 x.x.x</span>
+npm install &lt;包名@版本号&gt;</code></pre></div>
+<p>同样的，你也可以将依赖项添加到<code>devDependencies</code>中：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm install &lt;包名&gt; --save-dev
+<span class="hljs-comment"># 效果同上</span>
+npm install &lt;包名&gt; -D</code></pre></div>
+<p>安装<code>package.json</code>文件中的所有依赖，可以通过下面的方式：  </p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 安装项目中的包</span>
+npm install
+<span class="hljs-comment"># 在生产环境下</span>
+npm install --production</code></pre></div>
+
+<h2 id="更新本地包"><a href="#更新本地包" class="headerlink" title="更新本地包"></a>更新本地包</h2><p>定期更新依赖可以保证你的项目处于最新状态，<del>当然，有可能会遇到一堆麻烦</del><br>你可以在<code>package.json</code>文件所在目录执行下面的命令：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm update</code></pre></div>
+<p>在此之前可以你可以通过下面的方式检查安装的软件包的版本：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm outdated</code></pre></div>
+<p>在你执行完<code>npm update</code>，该命令应没有任何输出。  </p>
+<h2 id="卸载本地包"><a href="#卸载本地包" class="headerlink" title="卸载本地包"></a>卸载本地包</h2><p>卸载的操作与安装基本类似，只需要将<code>install</code>变成<code>uninstall</code>。<br>只是从<code>node_modules</code>目录中删除包：   </p>
+<div class="hljs"><pre><code class="hljs bash">npm uninstall &lt;包名&gt;</code></pre></div>
+<p>同时从<code>package.json</code>文件中删除依赖：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm uninstall --save &lt;包名&gt;</code></pre></div>
+<p>作为<code>devDependency</code>安装的需要通过<code>--save-dev</code>参数才可以卸载：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm uninstall --save-dev &lt;包名&gt;</code></pre></div>
+<p>删除当前项目文件所有依赖  </p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 可用性存疑</span>
+npm uninstall *</code></pre></div>
+<blockquote>
+<p>卸载完成后，你可以查看<code>node_modules</code>目录下对于包的目录已经不见了  </p>
+</blockquote>
+<h1 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h1><h2 id="安装全局包"><a href="#安装全局包" class="headerlink" title="安装全局包"></a>安装全局包</h2><p>例如对于一个命令行工具，你可能想将其安装到全局，这样你可以在任何目录下使用这个包：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm install -g &lt;包名&gt;
+<span class="hljs-comment"># 效果同上</span>
+npm install --global &lt;包名&gt;</code></pre></div>
+<p>你可以通过下面的命令查看全局安装的路径：  </p>
+<div class="hljs"><pre><code class="hljs bash">npm root -g</code></pre></div>
+
+<h2 id="更新-amp-卸载全局包"><a href="#更新-amp-卸载全局包" class="headerlink" title="更新&amp;卸载全局包"></a>更新&amp;卸载全局包</h2><p>找出需要更新的软件包  </p>
+<div class="hljs"><pre><code class="hljs bash">npm outdated -g --depth=0</code></pre></div>
+<p>更新全局软件包  </p>
+<div class="hljs"><pre><code class="hljs bash">npm update -g &lt;包名&gt;</code></pre></div>
+<p>更新所有全局软件包  </p>
+<div class="hljs"><pre><code class="hljs bash">npm update -g</code></pre></div>
+<p>卸载全局包  </p>
+<div class="hljs"><pre><code class="hljs bash">npm uninstall -g &lt;包名&gt;</code></pre></div>
+
+<h1 id="理解包和模块"><a href="#理解包和模块" class="headerlink" title="理解包和模块"></a>理解包和模块</h1><p>nodejs和npm有着对包（packages）和模块的定义（modules），但是很容易混淆它们。看看官网的解释：  </p>
+<blockquote>
+<p>A package is a file or directory that is described by a package.json.<br>A module is any file or directory that can be loaded by Node.js’ require().</p>
+</blockquote>
+<p>一个通过<code>package.json</code>描述的项目就是包，任何可以被nodejs的<code>require()</code>加载的就是模块。<br>因此大部分npm软件包都是模块，但这不是必须的。  </p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.cn/api/">node官方文档</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.cn/">npm中文文档</a>  </li>
+</ul>
 
             </div>
             <hr>
@@ -385,9 +440,10 @@ npm uninstall *</code></pre></div>
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
+      </a> -->
+      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
     
 
     
@@ -566,5 +622,5 @@ npm uninstall *</code></pre></div>
 
 
 
-<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><!-- hexo injector body_end end --></body>
+<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><script src="/blog/js/auto-gray.js"></script><script src="/blog/js/when-blur.js"></script><!-- hexo injector body_end end --></body>
 </html>

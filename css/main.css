@@ -228,42 +228,87 @@ sup > a::before,
   -webkit-animation: scroll-down 1.5s infinite;
   animation: scroll-down 1.5s infinite;
 }
-#scroll-top-button {
+#back-to-top {
   position: fixed;
-  background: var(--board-bg-color);
-  transition: background-color 0.2s ease-in-out, bottom 0.3s ease;
-  border-radius: 4px;
-  min-width: 40px;
-  min-height: 40px;
-  bottom: -60px;
-  outline: none;
-  display: flex;
-  display: -webkit-flex;
-  align-items: center;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  z-index: 3;
+  right: -108px;
+  bottom: 0;
+  width: 108px;
+  height: 150px;
+  background: url("../img/back-to-top.png") no-repeat 0 0;
+  background-size: 108px 450px;
+  opacity: 0.6;
+  transition: opacity 0.3s, right 0.8s;
 }
-#scroll-top-button i {
-  font-size: 1.75rem;
-  margin: auto;
-  color: var(--sec-text-color);
+#back-to-top.active {
+  background-position: 0 -150px;
+  opacity: 1;
 }
-#scroll-top-button:hover i,
-#scroll-top-button:active i {
-  -webkit-animation-name: scroll-top;
-  animation-name: scroll-top;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: 0.1s;
-  animation-delay: 0.1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
+#back-to-top.load {
+  right: 0;
+}
+#back-to-top.leaving {
+  background-position: 0 -150px;
+  animation: leaving 400ms ease-in-out;
   animation-fill-mode: forwards;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
+}
+#back-to-top.leaved {
+  pointer-events: none;
+  background: none;
+  transition: none;
+}
+#back-to-top.wind-blowing {
+  pointer-events: none;
+}
+#back-to-top.wind-blowing::after {
+  opacity: 1;
+}
+#back-to-top::after {
+  content: '';
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  width: 108px;
+  height: 150px;
+  background: url("../img/back-to-top.png") no-repeat 0 0;
+  background-size: 108px 450px;
+  background-position: 0 -300px;
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+@-moz-keyframes leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(108px);
+  }
+}
+@-webkit-keyframes leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(108px);
+  }
+}
+@-o-keyframes leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(108px);
+  }
+}
+@keyframes leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(108px);
+  }
 }
 #local-search-result .search-list-title {
   border-left: 3px solid #0d47a1;

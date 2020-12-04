@@ -2,7 +2,20 @@
 
 <!DOCTYPE html>
 <html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<!--
+             -. .
+       _____   ',' ,
+     ,'     ,'   ', ',
+   ,'     ,'      |  |
+   \       \       |  |
+     \ /^\   \    ,' ,'
+           \   \ ,' ,'      L'Internationale,
+     / ~-.___\.-'  ,'            Sera le genre humain.
+   /   .______.- ~ \
+ /   /'          \   \
+ \./               \/'
 
+-->
 
 
 <head>
@@ -196,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2 字
+      330 字
     </span>
   
 
@@ -206,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -239,7 +252,11 @@
             <h1 style="display: none">外联js脚本注意</h1>
             
             <div class="markdown-body">
-              <p>如图:<br><img src="https://image-static.segmentfault.com/215/179/2151798436-59da4801c6772_articlex" srcset="/blog/img/loading.gif" alt="图1"></p>
+              <p>浏览器通过<code>&lt;script&gt;</code>加载js脚本，默认是<strong>同步</strong>的方式。<br>即浏览器遇到<code>&lt;script&gt;</code>标签就会停下来，先执行脚本，然后再向下渲染，对于外部脚本，还要加上等待脚本下载的时间。<br>可想而知，如果脚本很大，下载和执行的时间都会变长，浏览器会阻塞，用户体验非常不好。为了解决这一点，浏览器允许脚本<strong>异步</strong>加载。  </p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;demo.js&quot;</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;demo.js&quot;</span> <span class="hljs-attr">async</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<p>通过为<code>&lt;script&gt;</code>设置<code>defer</code>和<code>async</code>属性，脚本就会进行异步加载了。浏览器遇到该行，就会开始下载外部脚本，但是不会进行等待，而是接着执行下面的命令。<br>两者的区别是：<code>defer</code>会等到整个页面正常渲染结束（Dom结构生成、其他脚本执行完成）才会执行；而<code>async</code>在下载完成后，浏览器就会中断渲染开始执行脚本，再继续渲染。特别的，多个<code>defer</code>脚本会按照在页面出现的顺序加载，而多个<code>async</code>的加载顺序是无法保证的。<br>你可以通过下面的图片看到几种js脚本加载方式的区别：<br><img src="https://image-static.segmentfault.com/215/179/2151798436-59da4801c6772_articlex" srcset="/blog/img/loading.gif" alt="三种外联js脚本加载方式"></p>
 
             </div>
             <hr>
@@ -341,9 +358,10 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
+      </a> -->
+      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
     
 
     
@@ -522,5 +540,5 @@
 
 
 
-<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><!-- hexo injector body_end end --></body>
+<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><script src="/blog/js/auto-gray.js"></script><script src="/blog/js/when-blur.js"></script><!-- hexo injector body_end end --></body>
 </html>
