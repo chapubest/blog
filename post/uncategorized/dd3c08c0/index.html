@@ -251,6 +251,12 @@
             <!-- SEO header -->
             <h1 style="display: none">解决弹出层的滚动页面bug</h1>
             
+              <p class="note note-info">
+                
+                  本文最后更新于：25 天前
+                
+              </p>
+            
             <div class="markdown-body">
               <p>❀❀有空更新❀❀  </p>
 <p>我们常常会在body下设置一个全屏显示的元素作为弹出层的底层，或是通过相对body的绝对定位或是fixed，在上面实现提示信息和对话框等功能。<br>这个弹出层通常是需要阻止用户对内容的操作的，因为h5中一般情况下只会触发最上面元素的事件，所以大多数场景下都可以阻止内容层事件。<br>但是对于滚动事件，有一点需要注意。如果内容层的高度将body的高度撑高，导致body高度大于视口高度，此时在弹出层上进行滚动时，你就会发现内容层也跟着滚动了。<br>发生这种情况的原因很简单，作为弹出层，触发了滚动事件，并将该事件向父级传递了，也就是向body传递。 body滚动，内容层自然跟着滚动了。<br>既然是由于弹出层的事件传递造成的，阻止他就可以了，使用<code>event.stopPropagation()</code>就可以了。<br>除此之外，你也可以为body设置100%高度，并将overflow设为hidden，这样body本身就不会滚动了。</p>
@@ -360,7 +366,7 @@
       <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a> -->
-      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
+      <a id="back-to-top" href="javascript:;" role="button" title="回到顶部"></a>
     
 
     

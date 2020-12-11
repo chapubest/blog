@@ -313,10 +313,38 @@ npm -v
           
             
           
-          参考资料
-https://blog.csdn.net/z69183787/article/details/26709505
+          BSON，Binary JSON，是一种二进制序列化格式，主要帮助数据更快的进行解析。BSON也对JSON的类型进行了扩充，增加了日期和二进制类型。下面列出了所有的BSON类型和对应的整数及字符串标识：  
 
 
+
+类型
+整数标识
+字符串标识
+备注
+
+
+
+Double
+1
+“double”
+
+
+
+String
+2
+“string”
+
+
+
+Object
+3
+“object”
+
+
+
+Array
+4
+“a
         </a>
       </p>
 
@@ -334,9 +362,9 @@ https://blog.csdn.net/z69183787/article/details/26709505
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/mongobd/">mongobd</a>
-            
               <a href="/blog/tags/json/">json</a>
+            
+              <a href="/blog/tags/mongodb/">mongodb</a>
             
           </div>
         
@@ -360,11 +388,10 @@ https://blog.csdn.net/z69183787/article/details/26709505
             
           
           ❀❀持续更新❀❀  
-是什么简单的说，mongoDB是一种非关系型的数据库(NoSQL)。  
+介绍SQL&amp;NoSQL
+SQL是结构化查询语句的缩写NoSQl = not only SQL 用来泛指非关系型数据库  
 
-SQL，结构化查询语句NoSQl = not only SQL  
-
-关系型数据库已经是老熟人了，经常被用来开发各种系统。非关系型数据库和它最显著的区别就是，去掉了数据之间的关联。回忆一下，在使用关系型数据库时，要考虑各种主键，外键，候选键，还要对表结构进行优化，考虑删除更新时的依赖，非常复杂。去掉数
+相信你已经对关系型数据库有了一点的了解，也用其开发过各种系统。非关系型数据库和它最显著的区别就是，去掉了数据之间的关联。回忆一下，在使用关系型数据库时，要考虑各种主键，外键，候选键，还要对表结构进行优化，考虑删除更新时的依赖，非常复杂。去掉数据关
         </a>
       </p>
 
@@ -723,7 +750,7 @@ inherit继承自父元素
       <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a> -->
-      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
+      <a id="back-to-top" href="javascript:;" role="button" title="回到顶部"></a>
     
 
     

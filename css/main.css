@@ -319,6 +319,9 @@ sup > a::before,
 #local-search-result .search-word {
   color: #ff4500;
 }
+html {
+  scroll-behavior: smooth;
+}
 html,
 body {
   font-size: 16px;
@@ -921,7 +924,8 @@ img[srcset] {
 .markdown-body pre code {
   font-size: 85%;
   display: block;
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 460px;
   padding: 0.5rem 0;
   line-height: 1.5;
   border-radius: 3px;
@@ -929,6 +933,31 @@ img[srcset] {
 }
 .markdown-body pre code.mermaid > svg {
   min-width: 100%;
+}
+.markdown-body pre code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.markdown-body pre code::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+.markdown-body pre code::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.markdown-body pre code::-webkit-scrollbar-track {
+  border-radius: 50px;
+  border: 0 none #fff;
+  background-color: #f1f1f1;
+}
+.markdown-body pre code::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  border: 0 none #fff;
+  background-color: #c1c1c1;
+}
+.markdown-body pre code::-webkit-scrollbar-thumb:active,
+.markdown-body pre code::-webkit-scrollbar-thumb:hover {
+  background-color: #a8a8a8;
 }
 .markdown-body p > img,
 .markdown-body p > a > img {
@@ -940,6 +969,9 @@ img[srcset] {
 }
 .markdown-body blockquote {
   color: var(--sec-text-color);
+}
+.markdown-body table th {
+  word-break: keep-all;
 }
 .markdown-body details {
   cursor: pointer;
@@ -953,7 +985,20 @@ img[srcset] {
   border-radius: 3px;
 }
 .markdown-body div.hljs pre {
+  position: relative;
   background-color: initial !important;
+}
+.markdown-body div.hljs pre::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #fc625d;
+  width: 0.625rem;
+  height: 0.625rem;
+  left: 12px;
+  top: 6px;
+  box-shadow: 1.25rem 0 #fdbc40, 2.5rem 0 #35cd4b;
+  z-index: 2;
 }
 .list-group-item {
   background-color: transparent;

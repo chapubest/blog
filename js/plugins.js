@@ -47,7 +47,7 @@ Fluid.plugins = {
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
       collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
+      scrollSmooth    : false,
       headingsOffset  : -boardTop
     });
     if ($('.toc-list-item').length > 0) {

@@ -251,6 +251,12 @@
             <!-- SEO header -->
             <h1 style="display: none">外联js脚本注意</h1>
             
+              <p class="note note-info">
+                
+                  本文最后更新于：7 天前
+                
+              </p>
+            
             <div class="markdown-body">
               <p>浏览器通过<code>&lt;script&gt;</code>加载js脚本，默认是<strong>同步</strong>的方式。<br>即浏览器遇到<code>&lt;script&gt;</code>标签就会停下来，先执行脚本，然后再向下渲染，对于外部脚本，还要加上等待脚本下载的时间。<br>可想而知，如果脚本很大，下载和执行的时间都会变长，浏览器会阻塞，用户体验非常不好。为了解决这一点，浏览器允许脚本<strong>异步</strong>加载。  </p>
 <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;demo.js&quot;</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -361,7 +367,7 @@
       <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a> -->
-      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
+      <a id="back-to-top" href="javascript:;" role="button" title="回到顶部"></a>
     
 
     

@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      38 字
+      377 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -251,9 +251,56 @@
             <!-- SEO header -->
             <h1 style="display: none">yarn</h1>
             
+              <p class="note note-info">
+                
+                  本文最后更新于：16 分钟前
+                
+              </p>
+            
             <div class="markdown-body">
               <p>❀持续更新❀</p>
-<p>yarn是脸书推出的包管理器，同npm一样，但是使用起来会更优雅、更可靠也更安全<del>大概</del>。  </p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>yarn是脸书推出的包管理器，同npm一样，但是使用起来会更优雅、更可靠也更安全<del>大概</del>。  </p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在安装yarn之前，确保你已安装了node。<br><img src="https://cdn.jsdelivr.net/gh/chapubest/picBed/images/20201211171136.png" srcset="/blog/img/loading.gif" alt="404~"><br>windows系统可以到官网下msi文件，如果你打开和我一样也是404，那可以直接用npm安装yarn。  </p>
+<div class="hljs"><pre><code class="hljs bash">npm install -global yarn</code></pre></div>
+<p>输入下面的命令返回对应的版本号就证明安装成功了。  </p>
+<div class="hljs"><pre><code class="hljs bash">yarn -v</code></pre></div>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>yarn的使用方法基本同npm类似。  </p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p>初始化项目并生成<code>package.json</code>文件</p>
+<div class="hljs"><pre><code class="hljs bash">yarn init</code></pre></div>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>默认添加到<code>package.json</code>的<code>dependencies</code>中</p>
+<div class="hljs"><pre><code class="hljs bash">yarn add &lt;包名&gt;</code></pre></div>
+<p>你同样可以指定依赖的版本或tag  </p>
+<div class="hljs"><pre><code class="hljs bash">yarn add &lt;包名@版本号&gt;
+
+yarn add &lt;包名@tag&gt;</code></pre></div>
+<p>可以使用标志安装不同环境的依赖  </p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 添加到devDependencies中</span>
+yarn add &lt;包名&gt; --dev
+<span class="hljs-comment"># 添加到peerDependencies中</span>
+yarn add &lt;包名&gt; --peer
+<span class="hljs-comment"># 添加到optionalDependencies中</span>
+yarn add &lt;包名&gt; --optional</code></pre></div>
+<blockquote>
+<p>peerDependencies 对等依赖，该依赖版本应该与安装该软件包的人完全相同<br>optionalDependencies 可选依赖，yarn不会对此依赖项进行限制。</p>
+</blockquote>
+<h2 id="升级依赖"><a href="#升级依赖" class="headerlink" title="升级依赖"></a>升级依赖</h2><div class="hljs"><pre><code class="hljs bash">yarn upgrade &lt;包名&gt;</code></pre></div>
+
+<h2 id="删除依赖"><a href="#删除依赖" class="headerlink" title="删除依赖"></a>删除依赖</h2><div class="hljs"><pre><code class="hljs bash">yarn remove &lt;包名&gt;</code></pre></div>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>使用<code>yarn install</code>安装<code>package.json</code>中所有依赖。  </p>
+<div class="hljs"><pre><code class="hljs bash">yarn install
+<span class="hljs-comment"># 效果同上</span>
+yarn 
+<span class="hljs-comment"># 强制重新下载所有软件包</span>
+yarn install --force
+<span class="hljs-comment"># 生产环境下安装依赖</span>
+yarn install --production</code></pre></div>
+
+<h2 id="从npm迁移到yarn"><a href="#从npm迁移到yarn" class="headerlink" title="从npm迁移到yarn"></a>从npm迁移到yarn</h2><div class="hljs"><pre><code class="hljs bash">yarn</code></pre></div>
+
+<h1 id="参考资料-amp-相关链接"><a href="#参考资料-amp-相关链接" class="headerlink" title="参考资料&amp;相关链接"></a>参考资料&amp;相关链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://yarn.bootcss.com/">yarn 官网</a></li>
+</ul>
 
             </div>
             <hr>
@@ -263,6 +310,8 @@
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/npm/">npm</a>
                     
                       <a class="hover-with-bg" href="/blog/tags/yarn/">yarn</a>
                     
@@ -358,7 +407,7 @@
       <!-- <a id="scroll-top-button" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a> -->
-      <a id="back-to-top" href="#" role="button" title="回到顶部"></a>
+      <a id="back-to-top" href="javascript:;" role="button" title="回到顶部"></a>
     
 
     

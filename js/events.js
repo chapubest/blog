@@ -152,10 +152,9 @@ Fluid.events = {
       topArrow.addClass("leaving");
       $("html, body").animate({
         scrollTop: 0
-      }, 800);
-      setTimeout(function() {
+      }, 0, function() {
         topArrow.removeClass("load");
-      }, 800);
+      });
       setTimeout(function() {
         topArrow.removeClass("leaving").addClass("leaved");
       }, 400);
