@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>storage之表单跨页 - 茶铺的小站</title>
+  <title>动手写个骨架屏 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="storage之表单跨页">
+            <span class="h2" id="subtitle" title="动手写个骨架屏">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-30 11:14" pubdate>
-        2020年11月30日 上午
+      <time datetime="2021-01-11 11:19" pubdate>
+        2021年1月11日 上午
       </time>
     </span>
   
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      642 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      9
        分钟
     </span>
   
@@ -249,21 +249,151 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">storage之表单跨页</h1>
+            <h1 style="display: none">动手写个骨架屏</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：10 天前
                 
               </p>
             
             <div class="markdown-body">
-              
+              <blockquote>
+<p>今天在掘金上随意看到一篇文章，讲如何实现一个骨架屏效果，读完自己也动手尝试了一番，十分简单但是也有些地方之前不是特别明白，遂整理下来。</p>
+</blockquote>
+<h1 id="教程内容"><a href="#教程内容" class="headerlink" title="教程内容"></a>教程内容</h1><p>先写一个卡片：   </p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./demo.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>骨架屏 Skeleton 效果<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;desc&quot;</span>&gt;</span>一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 在这种困难的抉择下，本人思来想去，寝食难安。 郭沫若说过一句富有哲理的话，形成天才的决定因素应该是勤奋。这句话语虽然很短，但令我浮想联翩。 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<p>卡片样式：  </p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">100vh</span>;
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">justify-content</span>: center;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">15px</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f6f6f6</span>;
+&#125;
+<span class="hljs-selector-class">.card</span> &#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">320px</span>;
+    <span class="hljs-attribute">overflow</span>: hidden;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">6px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, .<span class="hljs-number">12</span>);
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+&#125;
+<span class="hljs-selector-class">.img</span> &#123;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+&#125;
+<span class="hljs-selector-class">.img</span> &gt; <span class="hljs-selector-tag">img</span> &#123;
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: inherit;
+    <span class="hljs-comment">/* 图片可裁切，但保持原有尺寸比例 */</span>
+    <span class="hljs-attribute">object-fit</span>: cover;
+&#125;
+<span class="hljs-selector-class">.content</span> &#123;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">2rem</span> <span class="hljs-number">1.8rem</span>;
+&#125;
+<span class="hljs-selector-tag">h4</span> &#123;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1rem</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5rem</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5rem</span>;
+&#125;
+<span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4rem</span>;
+&#125;</code></pre></div>
+<p>接着就来实现卡片的骨架，复制html，去掉内容：  </p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card loading&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;desc&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<p>为骨架添加颜色和默认高度：</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-comment">/* 定义全局变量 */</span>
+<span class="hljs-selector-pseudo">:root</span> &#123;
+    <span class="hljs-attribute">--loading-grey</span>: <span class="hljs-number">#ededed</span>;
+&#125;
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.img</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-tag">h4</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--loading-grey);
+&#125;
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-tag">h4</span> &#123;
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">1.6rem</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+&#125;
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">4rem</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+&#125;</code></pre></div>
+<p>接下来是重点添加高亮：  </p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.img</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-tag">h4</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-comment">/* 添加一个倾角为100度的线性渐变 */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(
+        <span class="hljs-number">100deg</span>,
+        rgba(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>, <span class="hljs-number">0</span>) <span class="hljs-number">40%</span>,
+        <span class="hljs-built_in">rgba</span>(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>, .<span class="hljs-number">5</span>) <span class="hljs-number">50%</span>,
+        <span class="hljs-built_in">rgba</span>(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>, <span class="hljs-number">0</span>) <span class="hljs-number">60%</span>
+    ) <span class="hljs-built_in">var</span>(--loading-grey);
+    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">200%</span> <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">background-position-x</span>: <span class="hljs-number">180%</span>;
+&#125;</code></pre></div>
+<p>为高亮添加动画：  </p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.img</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-tag">h4</span>,
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-comment">/* 动画无限循环 */</span>
+   <span class="hljs-attribute">animation</span>: <span class="hljs-number">1s</span> loading ease-in-out infinite;
+&#125;
+<span class="hljs-keyword">@keyframes</span> loading &#123;
+    <span class="hljs-selector-tag">to</span> &#123;
+        <span class="hljs-attribute">background-position-x</span>: -<span class="hljs-number">20%</span>;
+    &#125;
+&#125;
+<span class="hljs-comment">/* 动画延迟播放保证同步 */</span>
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-tag">h4</span> &#123;
+    <span class="hljs-attribute">animation-delay</span>: .<span class="hljs-number">05s</span>;
+&#125;
+<span class="hljs-selector-class">.loading</span> <span class="hljs-selector-class">.desc</span> &#123;
+    <span class="hljs-attribute">animation-delay</span>: .<span class="hljs-number">06s</span>;
+&#125;</code></pre></div>
+<p>到此就搞定啦~<br>对内容有什么不懂的地方请去<a target="_blank" rel="noopener" href="https://juejin.cn/post/6915763034069663752,%22%E6%8E%98%E9%87%91%22">原地址</a>查看详细内容，或者在评论区留言。  </p>
+<h1 id="参考资料-amp-相关链接"><a href="#参考资料-amp-相关链接" class="headerlink" title="参考资料&amp;相关链接"></a>参考资料&amp;相关链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6915763034069663752">骨架屏Skeleton效果 from 掘金</a></li>
+</ul>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/categories/front-end/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/css/">css</a>
+                    
+                  </div>
                 
               </div>
               
@@ -274,9 +404,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/post/uncategorized/c965c636/">
+                      <a href="/blog/post/uncategorized/616e7345/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">yarn</span>
+                        <span class="hidden-mobile">editorconfig不完全指北</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -284,8 +414,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/post/uncategorized/336183be/">
-                        <span class="hidden-mobile">window的history对象</span>
+                      <a href="/blog/post/check-learn-css/5fb51a22/">
+                        <span class="hidden-mobile">css中的变量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

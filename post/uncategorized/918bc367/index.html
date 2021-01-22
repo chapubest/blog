@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      564 字
+      698 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      8
        分钟
     </span>
   
@@ -253,16 +253,16 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：21 天前
+                  本文最后更新于：4 天前
                 
               </p>
             
             <div class="markdown-body">
-              <p>正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式。它在字符串处理中有着非常强大的用处、这很多语言中都有对正则的支持。    </p>
+              <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式。它在字符串处理中有着非常强大的用处、这很多语言中都有对正则的支持。    </p>
 <blockquote>
 <p>英语 regluar expression，常简写为 regex、regexp、RE<br>js中的正则表达式通过regexp对象表示  </p>
 </blockquote>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><ol>
 <li>通过<code>//</code>  </li>
 </ol>
 <div class="hljs"><pre><code class="hljs js">/pattern/attributes</code></pre></div>
@@ -271,9 +271,21 @@
 <li>通过实例  </li>
 </ol>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(pattern, attributes);</code></pre></div>
-
 <p>attributes 为可选字符串，包括”g”,”i”,”m”，分别指代全局匹配、区分大小写和匹配多行，当然你也可以同时使用多个参数。  </p>
-<h3 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h3><ol>
+<h1 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h1><ol>
+<li>^和$<br>正则表达式中使用^和$分别表示匹配字符串的开头与结尾，举个荔枝  <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^test$/</span>;
+re.test(<span class="hljs-string">&quot;otest&quot;</span>);
+re.test(<span class="hljs-string">&quot;testp&quot;</span>);
+<span class="hljs-comment">// 返回 false</span>
+re.test(<span class="hljs-string">&quot;test&quot;</span>);
+<span class="hljs-comment">// 返回 true</span></code></pre></div></li>
+<li>括号<br>使用()可以获得括号内的匹配字符串，可以方便的获取有效信息，举个荔枝   <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/num_(\d+)/</span>;
+re.exec(<span class="hljs-string">&quot;name num_9909&quot;</span>);
+<span class="hljs-comment">// 返回 [&quot;num_9909&quot;, &quot;9909&quot;, ...]</span></code></pre></div></li>
+<li><code>a(?=b)</code>表示后面是字母b的字母a<br><code>(?&lt;=b)a</code>表示前面是字母b的字母a<br><code>a(?!b)</code>表示后面不是字母b的字母a<br><code>(?&lt;!b)a</code>表示前面不是字母b的字母a<br><code>()</code>会捕获分组并保存分组匹配的值<br><code>(?:)</code>不会保存分组匹配的值<br>举个例子：将数组<code>1123000</code>格式化成<code>1,123,000</code>  <div class="hljs"><pre><code class="hljs js"><span class="hljs-string">&quot;1123000&quot;</span>.replace(<span class="hljs-regexp">/\B(?=(?:\d&#123;3&#125;)+(?!\d))/g</span>, <span class="hljs-string">&quot;,&quot;</span>)</code></pre></div></li>
+<li><code>\b</code>匹配单词边界、字与空格之间的位置<br><code>\B</code>匹配非单词边界  </li>
+</ol>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h2><ol>
 <li><p><code>test</code><br>功能：检索字符串是否匹配模式<br>成功返回：<code>true</code><br>失败返回：<code>false</code>   </p>
 </li>
 <li><p><code>exec</code><br>功能：检索字符串中指定值<br>成功返回：数组<br>失败返回：<code>null</code>   </p>
@@ -292,7 +304,7 @@ re.exec(str);
 re.exec(str);
 <span class="hljs-comment">// 返回null re.lastIndex当前值为0</span></code></pre></div>
 
-<h3 id="String支持正则表达式方法"><a href="#String支持正则表达式方法" class="headerlink" title="String支持正则表达式方法"></a>String支持正则表达式方法</h3><ol>
+<h2 id="String支持正则表达式方法"><a href="#String支持正则表达式方法" class="headerlink" title="String支持正则表达式方法"></a>String支持正则表达式方法</h2><ol>
 <li><p><code>search</code><br>功能：检索字符串中的子串<br>成功返回：第一个匹配的子串的起始位置<br>失败返回：<code>-1</code>  </p>
 </li>
 <li><p><code>match</code><br>功能：检索字符串中指定值<br>成功返回：匹配数组<br>失败返回：<code>null</code>  </p>
@@ -301,17 +313,6 @@ re.exec(str);
 </li>
 <li><p><code>split</code><br>功能：将字符串分割为字符串数组<br>成功返回：字符串数组  </p>
 </li>
-</ol>
-<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><ol>
-<li>^和$<br>正则表达式中使用^和$分别表示匹配字符串的开头与结尾，举个荔枝  <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^test$/</span>;
-re.test(<span class="hljs-string">&quot;otest&quot;</span>);
-re.test(<span class="hljs-string">&quot;testp&quot;</span>);
-<span class="hljs-comment">// 返回 false</span>
-re.test(<span class="hljs-string">&quot;test&quot;</span>);
-<span class="hljs-comment">// 返回 true</span></code></pre></div></li>
-<li>括号<br>使用()可以获得括号内的匹配字符串，可以方便的获取有效信息，举个荔枝   <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/num_(\d+)/</span>;
-re.exec(<span class="hljs-string">&quot;name num_9909&quot;</span>);
-<span class="hljs-comment">// 返回 [&quot;num_9909&quot;, &quot;9909&quot;, ...]</span></code></pre></div></li>
 </ol>
 
             </div>
