@@ -206,7 +206,174 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/blog/post/uncategorized/d7bdf81a/">markdown学习笔记</a>
+        <a href="/blog/post/uncategorized/b6830d96/">mongoDB中的BSON</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/b6830d96/">
+          
+          
+            
+          
+          BSON，Binary JSON，是一种二进制序列化格式，主要帮助数据更快的进行解析。BSON也对JSON的类型进行了扩充，增加了日期和二进制类型。下面列出了所有的BSON类型和对应的整数及字符串标识：  
+
+
+
+类型
+整数标识
+字符串标识
+备注
+
+
+
+Double
+1
+“double”
+
+
+
+String
+2
+“string”
+
+
+
+Object
+3
+“object”
+
+
+
+Array
+4
+“a
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-10 16:57" pubdate>
+              2020-10-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JSON/">JSON</a>
+            
+              <a href="/blog/tags/MongoDB/">MongoDB</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/68efd8d6/">mongoDB初探</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/68efd8d6/">
+          
+          
+            
+          
+          ❀❀持续更新❀❀  
+介绍SQL&amp;NoSQL
+SQL是结构化查询语句的缩写NoSQL = not only SQL 用来泛指非关系型数据库  
+
+相信你已经对关系型数据库有了一点的了解，也用其开发过各种系统。非关系型数据库和它最显著的区别就是，去掉了数据之间的关联。回忆一下，在使用关系型数据库时，要考虑各种主键，外键，候选键，还要对表结构进行优化，考虑删除更新时的依赖，非常复杂。去掉数据关
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-30 16:01" pubdate>
+              2020-09-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/database/">数据库</a>
+            
+              <a href="/blog/tags/NoSQL/">NoSQL</a>
+            
+              <a href="/blog/tags/MongoDB/">MongoDB</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/dd3c08c0/">解决弹出层的滚动页面bug</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/dd3c08c0/">
+          
+          
+            
+          
+          ❀❀有空更新❀❀  
+我们常常会在body下设置一个全屏显示的元素作为弹出层的底层，或是通过相对body的绝对定位或是fixed，在上面实现提示信息和对话框等功能。这个弹出层通常是需要阻止用户对内容的操作的，因为h5中一般情况下只会触发最上面元素的事件，所以大多数场景下都可以阻止内容层事件。但是对于滚动事件，有一点需要注意。如果内容层的高度将body的高度撑高，导致body高度大于视口高度，此时在
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-22 13:23" pubdate>
+              2020-09-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/blog/tags/HTML/">HTML</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/d7bdf81a/">Markdown学习笔记</a>
       </h1>
 
       <p class="index-excerpt">
@@ -216,19 +383,20 @@
             
           
           
-本文记录下markdown中的小知识，博客小白，根据情况进行补充。  
+本文记录下 Markdown 中的小知识，博客小白，根据情况进行补充。  
 
-插入代码markdown可以方便的实现代码引用  
-单行代码通过反引号包裹：  
-`php`是世界上最好的语言，狗头。
+插入代码Markdown 可以方便的实现代码引用
+单行代码通过反引号`包裹：
+`php` 是世界上最好的语言，「狗头」。
 
-代码块通过三个反引号包裹代码块：  
+代码块通过三个反引号包裹代码块：
 ```type
 code
 code
 code
 ```
-本博客使用的渲染器，代码高亮效果像是这样：  
+
+本博客使用的渲染器，代码高亮效果像是这样：
 var f1 = function(param) &#123;
         </a>
       </p>
@@ -247,7 +415,7 @@ var f1 = function(param) &#123;
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/markdown/">markdown</a>
+              <a href="/blog/tags/Markdown/">Markdown</a>
             
           </div>
         
@@ -271,19 +439,20 @@ var f1 = function(param) &#123;
             
           
           提交
-在提交时输入多行信息  
+在提交时输入多行信息
 
 git commit -m &quot;第一行
 第二行
 第三行&quot;
 
 
-修改刚刚最后一次提交的注释  
+修改刚刚最后一次提交的注释
 
 git commit --amend
-更多内容可以参考https://www.jianshu.com/p/098d85a58bf1  
+
+更多内容可以参考 https://www.jianshu.com/p/098d85a58bf1  
 撤销
-撤销当前工作区的修改未add到暂存区，则撤销回和版本库一样，add到暂存区后又做修改，则撤销回上一次add到暂
+撤销当前工作区的修改未 add 到暂存区，则撤销回和版本库一样，add 到暂存区后又做修改，则撤销回上一次 add
         </a>
       </p>
 
@@ -301,7 +470,7 @@ git commit --amend
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/git/">git</a>
+              <a href="/blog/tags/Git/">Git</a>
             
           </div>
         
@@ -345,7 +514,7 @@ https://www.jianshu.com/p/b4fd76c61dc9
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/js/">js</a>
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
             
           </div>
         
@@ -391,7 +560,7 @@ https://www.jianshu.com/p/b4fd76c61dc9
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/html/">html</a>
+              <a href="/blog/tags/HTML/">HTML</a>
             
           </div>
         
@@ -446,7 +615,7 @@ inherit继承自父元素
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/css/">css</a>
+              <a href="/blog/tags/CSS/">CSS</a>
             
           </div>
         
@@ -491,7 +660,7 @@ figure可翻译成图片图形、图像 caption可翻译成标题
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/html/">html</a>
+              <a href="/blog/tags/HTML/">HTML</a>
             
           </div>
         
@@ -537,145 +706,7 @@ https://www.cnb
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/html/">html</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/6f0625d3/">关于table标签的样式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/6f0625d3/">
-          
-          
-            
-          
-          关于table标签有3个比较特殊的属性来控制样式，分别是border，cellspacing，cellpadding。注意它们都是标签的属性，虽然控制样式但是和css中的属性是不同的。  
-
-borderborder属性与css中的border不同。table中的border用来设置表格是否有边框：border=&quot;0&quot;时表格无边框border=其他值时表格有边框，当border
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-14 08:54" pubdate>
-              2020-09-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/css/">css</a>
-            
-              <a href="/blog/tags/html/">html</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/63ee94ee/">js事件冒泡</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/63ee94ee/">
-          
-          
-            
-          
-          js具有事件冒泡机制，所谓事件冒泡机制就是js事件是从内向外冒泡的，子节点触发事件后会向父节点触发同名事件，直到dom根节点。举个栗子:  
-&lt;script&gt;
-  $(function() &#123;
-    $(&#x27;.outer&#x27;).on(&#x27;click&#x27;, function()&#123;
-      console.log(&#x27;我是最
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-11 11:11" pubdate>
-              2020-09-11
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/js/">js</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/1986879b/">git中容易搞错的命令</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/1986879b/">
-          
-          
-            
-          
-          ❀❀持续更新❀❀  
-git fetch 和 git pull一句话总结  
-
-git fetch是将远程主机的最新内容拉取到本地  
-git pull是将远程主机最新内容拉取到本地并自动合并，即git pull = git fetch + git merge，当然产生冲突时，需要手动解决冲突。
-
-git merge 和 git rebase其他学习git资源
-廖雪峰大大的git教程这个无需多言，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-08 15:10" pubdate>
-              2020-09-08
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/git/">git</a>
+              <a href="/blog/tags/HTML/">HTML</a>
             
           </div>
         
@@ -687,7 +718,7 @@ git merge 和 git rebase其他学习git资源
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/4/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

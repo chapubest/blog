@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>editorconfig不完全指北 - 茶铺的小站</title>
+  <title>Markdown中文排版规范 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="editorconfig不完全指北">
+            <span class="h2" id="subtitle" title="Markdown中文排版规范">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-18 11:01" pubdate>
-        2021年1月18日 上午
+      <time datetime="2021-02-20 11:21" pubdate>
+        2021年2月20日 上午
       </time>
     </span>
   
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      447 字
+      388 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      3
        分钟
     </span>
   
@@ -249,34 +249,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">editorconfig不完全指北</h1>
+            <h1 style="display: none">Markdown中文排版规范</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 天前
+                  本文最后更新于：17 天前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>因为常常用到editorconfig，这里做一个简单的总结，也希望可以帮助到对此还不了解的朋友。  </p>
+<p>本文介绍了 Markdown 的中文排版规范，不具体展开语法内容。</p>
 </blockquote>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>editorconfig用于同一项目的不同开发人员在本地ide中保持一致的编码样式。你一定遇到过，别人的编码样式和你的不一致的情况，有时候还可以勉强使用，有时候就会遇到各种问题。尤其是多人协同的项目，编码格式不一致一定是一件非常糟糕的事情。许多公司都会有内部的开发准则和编码规范，但是直接通过ide的约束，可以大大方便我们的开发过程，避免大部份错误的发生。  </p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>有些ide是内部支持editorconfig的，有些需要通过插件来实现，本文以vscode为例。<br>下载并安装EditorConfig for VS Code。<br>在项目根目录下创建一个<code>.editorconfig</code>文件。<br>根据需要编写对应的配置。  </p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><code>root</code>表示是否位于根目录，取值<code>true</code>和<code>false</code>。<br><code>indent_style</code>表示缩进的形式，取值<code>tab</code>和<code>space</code>。<br><code>indent_size</code>表示缩进的大小，取值<code>tab</code>或正整数。<br><code>tab_width</code>表示tab的大小，默认是<code>indet-size</code>的值，取值正整数。<br><code>end_of_line</code>表示结尾换行符号，取值<code>lf</code>（Unix）,<code>cr</code>（Mac）,<code>crlf</code>（Dos）。<br><code>charset</code>表示文件的编码，取值<code>latin1</code>、<code>utf-8</code>、<code>utf-8-bom</code>、<code>utf-16be</code>、<code>utf-16le</code>。<br><code>trim_trailing_whitespace</code>表示结尾是否允许空格，取值<code>true</code>和<code>false</code>。<br><code>insert_final_newline</code>表示文档是否以换行符结尾，即文档内容是否必须以空行结尾，取值<code>true</code>和<code>false</code>。<br><code>max_line_length</code>表示ide在指定字符后强制换行，取值<code>off</code>或正整数，<em>部分ide支持</em>。<br>以本博客的配置为例：  </p>
-<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">root</span> = <span class="hljs-literal">true</span>
-
-<span class="hljs-section">[*]</span>
-<span class="hljs-attr">charset</span> = utf-<span class="hljs-number">8</span>
-<span class="hljs-attr">end_of_line</span> = lf
-<span class="hljs-attr">indent_style</span> = space
-<span class="hljs-attr">insert_final_newline</span> = <span class="hljs-literal">true</span>
-<span class="hljs-attr">trim_trailing_whitespace</span> = <span class="hljs-literal">true</span>
-
-<span class="hljs-section">[*.md]</span>
-<span class="hljs-attr">indent_size</span> = <span class="hljs-number">4</span>
-<span class="hljs-attr">tab_width</span> = <span class="hljs-number">4</span>
-<span class="hljs-attr">trim_trailing_whitespace</span> = <span class="hljs-literal">false</span></code></pre></div>
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>Markdown 作为一种结构化文档的纯文本格式，已经被越来越多的人接受使用。但是它并没有统一规范，为了确保文档的一致性和渲染安全，我整理了一些中文排版规范或者习惯写法，它主要来自 <a target="_blank" rel="noopener" href="https://github.github.com/gfm/">GFM (GitHub Flavored Markdown)</a>。</p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><ul>
+<li>最多六级标题</li>
+<li>标题前后空一行，去掉标题尾随空格</li>
+</ul>
+<h1 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h1><ul>
+<li>采用两个空格加一个回车的方式换行或直接在段落结尾空一行，但是不要出现连续两个空行</li>
+<li>文件末尾空一行，方便进行文件拼接</li>
+</ul>
+<h1 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h1><ul>
+<li>在中英文之间添加空格</li>
+<li>在中文和数字之间添加空格</li>
+<li>在数字和单位之间添加空格，但是数字和度和百分比之间不需要空格</li>
+<li>全角标点和其他符号之间不加空格</li>
+<li>链接前后添加空格</li>
+<li>加粗、斜体、高亮文本前后添加空格</li>
+</ul>
+<h1 id="标点符号"><a href="#标点符号" class="headerlink" title="标点符号"></a>标点符号</h1><ul>
+<li>使用全角中文标点</li>
+<li>数字使用半角字符</li>
+<li>完整英文、特殊名词使用半角标点</li>
+</ul>
+<h1 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h1><ul>
+<li>专有名词使用正确的大小写</li>
+<li>确保缩写规范、正确</li>
+</ul>
+<h1 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h1><ul>
+<li>使用 4 个空格进行缩进</li>
+</ul>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li>在使用无序或有序列表时，前后和上下级之间空一行，同级可以不空行</li>
+</ul>
+<h1 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h1><ul>
+<li>简体中文使用直角引号</li>
+</ul>
 
             </div>
             <hr>
@@ -287,7 +306,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/ide/">ide</a>
+                      <a class="hover-with-bg" href="/blog/tags/Markdown/">Markdown</a>
                     
                   </div>
                 
@@ -304,8 +323,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/post/front-end/29e5d662/">
-                        <span class="hidden-mobile">动手写个骨架屏</span>
+                      <a href="/blog/post/uncategorized/3636c26e/">
+                        <span class="hidden-mobile">js编码和解码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

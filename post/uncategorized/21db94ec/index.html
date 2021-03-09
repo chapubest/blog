@@ -258,29 +258,30 @@
               </p>
             
             <div class="markdown-body">
-              <h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ul>
-<li>在提交时输入多行信息  </li>
+              <h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><ul>
+<li>在提交时输入多行信息</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;第一行</span>
 <span class="hljs-string">第二行</span>
 <span class="hljs-string">第三行&quot;</span></code></pre></div>
 
 <ul>
-<li>修改刚刚最后一次提交的注释  </li>
+<li>修改刚刚最后一次提交的注释</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git commit --amend</code></pre></div>
-<p>更多内容可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/098d85a58bf1">https://www.jianshu.com/p/098d85a58bf1</a>  </p>
-<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><ul>
-<li>撤销当前工作区的修改<br>未add到暂存区，则撤销回和版本库一样，add到暂存区后又做修改，则撤销回上一次add到暂存区后的状态  </li>
+
+<p>更多内容可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/098d85a58bf1">https://www.jianshu.com/p/098d85a58bf1</a>  </p>
+<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><ul>
+<li>撤销当前工作区的修改<br>未 add 到暂存区，则撤销回和版本库一样，add 到暂存区后又做修改，则撤销回上一次 add 到暂存区后的状态  </li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 撤销指定文件的修改</span>
 git checkout -- &lt;文件名&gt;
 <span class="hljs-comment"># 撤销所有修改</span>
 git checkout .</code></pre></div>
 
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>git鼓励使用分支进行新功能的开发，而且因为git中分支通过指针实现，对分支的创建、删除、修改都十分方便快速。  </p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git 鼓励使用分支进行新功能的开发，而且因为 git 中分支通过指针实现，对分支的创建、删除、修改都十分方便快速。</p>
 <ul>
-<li>创建分支  </li>
+<li>创建分支</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git branch &lt;分支名称&gt;
 
@@ -290,7 +291,7 @@ git checkout -b &lt;分支名称&gt;
 git switch -c &lt;分支名称&gt;</code></pre></div>
 
 <ul>
-<li>重命名  </li>
+<li>重命名</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 本地分支</span>
 git branch -m &lt;旧名称&gt; &lt;新名称&gt;
@@ -300,7 +301,7 @@ git push origin &lt;新名称&gt;
 git push -d origin &lt;旧名称&gt;</code></pre></div>
 
 <ul>
-<li>查看分支  </li>
+<li>查看分支</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 查看本地分支</span>
 git branch
@@ -319,7 +320,7 @@ git branch -a</code></pre></div>
 git switch &lt;分支名称&gt;</code></pre></div>
 
 <ul>
-<li>删除分支  </li>
+<li>删除分支</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git branch -d &lt;分支名称&gt;</code></pre></div>
 
@@ -328,13 +329,13 @@ git switch &lt;分支名称&gt;</code></pre></div>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 合并指定分支到当前分支</span>
 git merge &lt;分支名称&gt;</code></pre></div>
-<p>git会尝试使用<code>Fast forward</code>方式进行合并。<br>当合并过程中会出现冲突时，git通过<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记不同分支内容，需要手动修改冲突，并重新提交(add&amp;commit)。<br>git默认使用<code>Fast forward</code>方式合并，删除分支后，是看不到分支信息的。<br>可以在合并的时候禁用<code>Fast forward</code>模式，此时，会生成一个新的commit，就可以从历史中看到分支信息了。  </p>
+<p>git 会尝试使用 <code>Fast forward</code> 方式进行合并。<br>当合并过程中会出现冲突时，git 通过 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 标记不同分支内容，需要手动修改冲突，并重新提交（add&amp;commit）。<br>git 默认使用 <code>Fast forward</code> 方式合并，删除分支后，是看不到分支信息的。<br>可以在合并的时候禁用 <code>Fast forward</code> 模式，此时，会生成一个新的 commit，就可以从历史中看到分支信息了。  </p>
 <div class="hljs"><pre><code class="hljs bash">git merge --no-ff -m <span class="hljs-string">&quot;commit信息&quot;</span> &lt;分支名称&gt;</code></pre></div>
 
 <ul>
-<li>选择特点commit进行合并  </li>
+<li>选择特点 commit 进行合并  </li>
 </ul>
-<p>开发中存在某次提交内容为bug修改，想要将该提交复制到其他分支上可以使用<code>cheey-pick</code>  </p>
+<p>开发中存在某次提交内容为 bug 修改，想要将该提交复制到其他分支上可以使用 <code>cheey-pick</code>  </p>
 <div class="hljs"><pre><code class="hljs bash">git cheey-pick &lt;commit编号&gt;</code></pre></div>
 
 <ul>
@@ -358,7 +359,7 @@ git pull</code></pre></div>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 将本地分支提交到远程</span>
 git push &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></pre></div>
 
-<h3 id="暂存工作区"><a href="#暂存工作区" class="headerlink" title="暂存工作区"></a>暂存工作区</h3><p>在开发过程中需要临时处理bug，但是当前工作尚未完成(尚未commit)，可以使用<code>stash</code>保存工作区。  </p>
+<h1 id="暂存工作区"><a href="#暂存工作区" class="headerlink" title="暂存工作区"></a>暂存工作区</h1><p>在开发过程中需要临时处理 bug，但是当前工作尚未完成（尚未commit），可以使用 <code>stash</code> 保存工作区。  </p>
 <ul>
 <li>保存  </li>
 </ul>
@@ -386,7 +387,7 @@ git stash pop</code></pre></div>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git stash drop</code></pre></div>
 
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><ul>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><ul>
 <li>查看标签  </li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git tag
@@ -395,7 +396,7 @@ git stash pop</code></pre></div>
 git show &lt;tag名称&gt;</code></pre></div>
 
 <ul>
-<li>创建标签<br>创建和删除标签都是在本地操作，如果想要同步到远程可以查看<a href="#tag_origin">远程操作</a>部分。  </li>
+<li>创建标签<br>创建和删除标签都是在本地操作，如果想要同步到远程可以查看 <a href="#tag_origin">远程操作</a> 部分。  </li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># 默认标签打在最新提交的commit上，即HEAD</span>
 git tag &lt;tag名称&gt;
@@ -423,20 +424,22 @@ git push origin --tags
 <span class="hljs-comment"># 从远程删除</span>
 git push origin :refs/tags/&lt;tag名称&gt;</code></pre></div>
 
-<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><ul>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><ul>
 <li>以分支图方式查看日志  </li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --graph</code></pre></div>
 
 <ul>
-<li><p>查看所有历史操作记录<br>该命令可以查看<code>commitid</code>常用来进行恢复</p>
+<li>查看所有历史操作记录  </li>
+</ul>
+<p>该命令可以查看<code>commitid</code>常用来进行恢复  </p>
 <div class="hljs"><pre><code class="hljs bash">git reflog
 
 <span class="hljs-comment"># 搭配reset操作</span>
 git reset --hard &lt;commitid&gt;</code></pre></div>
-<h3 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title="gitignore文件"></a><code>gitignore</code>文件</h3></li>
-<li><p>创建<code>gitignore</code>文件  </p>
-</li>
+
+<h1 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title="gitignore文件"></a><code>gitignore</code>文件</h1><ul>
+<li>创建 <code>gitignore</code> 文件</li>
 </ul>
 <div class="hljs"><pre><code class="hljs bash">touch .gitignore</code></pre></div>
 
@@ -449,7 +452,7 @@ git reset --hard &lt;commitid&gt;</code></pre></div>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/git/">git</a>
+                      <a class="hover-with-bg" href="/blog/tags/Git/">Git</a>
                     
                   </div>
                 
@@ -464,7 +467,7 @@ git reset --hard &lt;commitid&gt;</code></pre></div>
                     
                       <a href="/blog/post/uncategorized/d7bdf81a/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">markdown学习笔记</span>
+                        <span class="hidden-mobile">Markdown学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

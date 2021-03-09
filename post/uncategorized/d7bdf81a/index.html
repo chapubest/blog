@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>markdown学习笔记 - 茶铺的小站</title>
+  <title>Markdown学习笔记 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="markdown学习笔记">
+            <span class="h2" id="subtitle" title="Markdown学习笔记">
               
             </span>
 
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      478 字
+      502 字
     </span>
   
 
@@ -249,39 +249,40 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">markdown学习笔记</h1>
+            <h1 style="display: none">Markdown学习笔记</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 天前
+                  本文最后更新于：17 天前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>本文记录下markdown中的小知识，博客小白，根据情况进行补充。  </p>
+<p>本文记录下 Markdown 中的小知识，博客小白，根据情况进行补充。  </p>
 </blockquote>
-<h1 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h1><p>markdown可以方便的实现代码引用  </p>
-<h2 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h2><p>通过反引号包裹：  </p>
-<div class="hljs"><pre><code class="hljs autohotkey">`php`是世界上最好的语言，狗头。</code></pre></div>
+<h1 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h1><p>Markdown 可以方便的实现代码引用</p>
+<h2 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h2><p>通过反引号`包裹：</p>
+<div class="hljs"><pre><code class="hljs autohotkey">`php` 是世界上最好的语言，「狗头」。</code></pre></div>
 
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>通过三个反引号包裹代码块：  </p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>通过三个反引号包裹代码块：</p>
 <div class="hljs"><pre><code class="hljs text">```type
 code
 code
 code
 ```</code></pre></div>
-<p>本博客使用的渲染器，代码高亮效果像是这样：  </p>
+
+<p>本博客使用的渲染器，代码高亮效果像是这样：</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> f1 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">param</span>) </span>&#123;
     <span class="hljs-keyword">return</span> param&gt;<span class="hljs-number">0</span>;
 &#125;</code></pre></div>
-<p>你也可以将代码块直接缩进并在首尾空一行，同样可以表示代码块：  </p>
+
+<p>你也可以将代码块直接缩进并在首尾空一行，同样可以表示代码块：</p>
 <div class="hljs"><pre><code class="hljs text">&lt;!-- 空一行 --&gt;
     var f1 = function(param) &#123;
         return param&gt;0;
     &#125;
 &lt;!-- 空一行 --&gt;</code></pre></div>
-
 
 <h2 id="高亮支持的常见语言"><a href="#高亮支持的常见语言" class="headerlink" title="高亮支持的常见语言"></a>高亮支持的常见语言</h2><table>
 <thead>
@@ -294,7 +295,7 @@ code
 <tbody><tr>
 <td>shell</td>
 <td><code>bash</code></td>
-<td>例如<code>git</code>语句</td>
+<td>例如 <code>git</code> 语句</td>
 </tr>
 <tr>
 <td>javascript</td>
@@ -324,31 +325,39 @@ code
 <tr>
 <td>diff</td>
 <td><code>diff</code>,<code>patch</code></td>
-<td>配合<code>+</code>，<code>-</code>使用</td>
+<td>配合 <code>+</code>，<code>-</code> 使用</td>
 </tr>
 </tbody></table>
-<h1 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h1><p>想要同时显示斜体加粗可以使用三个星号 <strong><em>斜体加粗</em></strong>，注意左边前面需要空一格。<br>因为星号<code>*</code>和下划线<code>_</code>都可以作为强调符号，所以你也可以混用星号和下划线实现斜体加粗的效果。<br><code>__*斜体加粗*__</code>效果：<strong><em>斜体加粗</em></strong> 右边需要空一格<br><code>_**斜体加粗**_</code>效果：<em><strong>斜体加粗</strong></em> 右边需要空一格<br><code>*__斜体加粗__*</code>效果：<em><strong>斜体加粗</strong></em><br><code>**_斜体加粗_**</code>效果：<strong><em>斜体加粗</em></strong>  </p>
-<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><p>markdown中使用<code>*</code>，<code>+</code>和<code>-</code>加空格在行首表示无序列表，使用<code>&lt;数字&gt;.</code>加空格在行首表示有序列表。<br>如需嵌套需在将子列表缩进4个空格，可以混用有序列表与无序列表。  </p>
-<div class="hljs"><pre><code class="hljs text">1. 第一章  
-    1. 第二节  
+<h1 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h1><p>想要同时显示斜体加粗可以使用三个星号 <strong><em>斜体加粗</em></strong>，注意左边前面需要空一格。<br>因为星号 <code>*</code> 和下划线 <code>_</code> 都可以作为强调符号，所以你也可以混用星号和下划线实现斜体加粗的效果。<br><code>__*斜体加粗*__</code>效果：<strong><em>斜体加粗</em></strong> 右边需要空一格<br><code>_**斜体加粗**_</code>效果：<em><strong>斜体加粗</strong></em> 右边需要空一格<br><code>*__斜体加粗__*</code>效果：<em><strong>斜体加粗</strong></em><br><code>**_斜体加粗_**</code>效果：<strong><em>斜体加粗</em></strong>  </p>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><p>markdown中使用 <code>*</code>，<code>+</code> 和 <code>-</code> 加空格在行首表示无序列表，使用 <code>&lt;数字&gt;.</code> 加空格在行首表示有序列表。<br>如需嵌套需在将子列表缩进 4 个空格，可以混用有序列表与无序列表。  </p>
+<div class="hljs"><pre><code class="hljs text">1. 第一章
+
+    1. 第二节
     2. 第二节
+
 2. 第二章</code></pre></div>
+
 <p>效果：</p>
 <ol>
-<li>第一章  <ol>
-<li>第二节  </li>
+<li><p>第一章</p>
+<ol>
+<li>第二节</li>
 <li>第二节</li>
 </ol>
 </li>
-<li>第二章  </li>
+<li><p>第二章 </p>
+</li>
 </ol>
-<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>三个或者三个以上的<code>-</code>或者<code>*</code>会显示为分割线：  </p>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>三个或者三个以上的 <code>-</code> 或者 <code>*</code> 会显示为分割线：</p>
 <div class="hljs"><pre><code class="hljs text">第一段
 ---
 第二段</code></pre></div>
-<p>效果如下：<br>第一段</p>
-<hr>
-<p>第二段</p>
+
+<p>效果如下：</p>
+<h2 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a>第一段</h2><p>第二段</p>
+<h1 id="参考资料-amp-相关链接"><a href="#参考资料-amp-相关链接" class="headerlink" title="参考资料&amp;相关链接"></a>参考资料&amp;相关链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144446995">基于 Markdown 的中文文档排版规范 from 知乎</a></li>
+</ul>
 
             </div>
             <hr>
@@ -359,7 +368,7 @@ code
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/markdown/">markdown</a>
+                      <a class="hover-with-bg" href="/blog/tags/Markdown/">Markdown</a>
                     
                   </div>
                 

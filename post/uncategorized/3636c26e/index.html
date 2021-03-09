@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<!--
+             -. .
+       _____   ',' ,
+     ,'     ,'   ', ',
+   ,'     ,'      |  |
+   \       \       |  |
+     \ /^\   \    ,' ,'
+           \   \ ,' ,'      L'Internationale,
+     / ~-.___\.-'  ,'            Sera le genre humain.
+   /   .______.- ~ \
+ /   /'          \   \
+ \./               \/'
+
+-->
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="chapu&#39;s blog">
+  <meta name="author" content="Yang Xu">
+  <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
+  <title>js编码和解码 - 茶铺的小站</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"chapu.gitee.io","root":"/blog/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"CrA6J2uslOlguiRQgSjT72he-gzGzoHsz","app_key":"Q2oE1R6yBt353jiWMp4FNQsH","server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>茶铺的小站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="js编码和解码">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-25 16:53" pubdate>
+        2021年1月25日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      461 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js编码和解码</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：17 天前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>本文将介绍 JavaScript 中的一些编码函数</p>
+</blockquote>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p><em><code>escape</code> 已从标准中删除，即将废弃，不建议继续使用。请使用 <code>encodeURI</code>,<code>encodeURIComponent</code> 代替。</em><br><em><code>unescape</code> 已从标准中删除，即将废弃，不建议继续使用。请使用 <code>decodeURI</code>,<code>decodeURIComponent</code> 代替。</em></p>
+<h1 id="escape"><a href="#escape" class="headerlink" title="escape"></a><code>escape</code></h1><p><code>escape</code> 是全局对象的属性，生产新的由 <strong>十六进制转义序列</strong> 替换的字符串。如果字符小于 <code>0xff</code> 用两位表示：<code>%xx</code>，否则使用四位表示：<code>%uxxxx</code>。</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">escape</span>(<span class="hljs-string">&quot;abc123&quot;</span>);
+<span class="hljs-comment">// 返回 &quot;abc123&quot;</span>
+<span class="hljs-built_in">escape</span>(<span class="hljs-string">&quot; &quot;</span>);
+<span class="hljs-comment">// 返回 &quot;%20&quot;</span>
+<span class="hljs-built_in">escape</span>(<span class="hljs-string">&quot;你好&quot;</span>);
+<span class="hljs-comment">// 返回 &quot;%u4F60%u597D&quot;</span>
+<span class="hljs-built_in">escape</span>(<span class="hljs-string">&quot;@*_+-./&quot;</span>);
+<span class="hljs-comment">// 特殊字符不转义，返回 &quot;@*_+-./&quot;</span></code></pre></div>
+
+<h1 id="unescape"><a href="#unescape" class="headerlink" title="unescape"></a><code>unescape</code></h1><p>生成一个新的字符串，将十六进制转义序列替换为其表示的字符串，作用与 <code>escape</code> 相反。</p>
+<h1 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI"></a><code>encodeURI</code></h1><p>通过特定字符对统一资源标识符(URI)进行编码。<br><code>encodeURI</code> 不会对 URI 中的保留字、非转义字符和数字符号进行转义：<br>; , / ? : @ &amp; = + $ a-z A-Z 0-9 - _ . ! ~ * ‘ ( ) #<br>无法转义时会抛出 <code>URIError</code> 异常。</p>
+<h1 id="decodeURI"><a href="#decodeURI" class="headerlink" title="decodeURI"></a><code>decodeURI</code></h1><p>对由 <code>encodeURI</code> 函数创建或其他流程获得的 URI 进行解码。<br>无法识别转义序列时会抛出 <code>URIError</code> 异常。</p>
+<h1 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent"></a><code>encodeURIComponent</code></h1><p>通过字符的 utf-8 编码的转义序列替换某些字符进行编码 URI。<br><code>encodeURIComponent</code> 不转义以下字符：<br>a-z A-Z 0-9 - _ . ! ~ * ‘ ( )<br>无法转义时会抛出 <code>URIError</code> 异常。  </p>
+<h1 id="decodeURIComponent"><a href="#decodeURIComponent" class="headerlink" title="decodeURIComponent"></a><code>decodeURIComponent</code></h1><p>对由 <code>encodeURIComponent</code> 函数创建或其他类似流程获得的 URI 进行解码。<br>无法识别转义序列时会抛出 <code>URIError</code> 异常。</p>
+<h1 id="统一资源标识符（URI）"><a href="#统一资源标识符（URI）" class="headerlink" title="统一资源标识符（URI）"></a>统一资源标识符（URI）</h1><blockquote>
+<p>URI（Uniform Resource Identifier，统一资源标识符）用来标记某一互联网资源名称的字符串。<br>区别于 URL（Uniform Resource Locator，统一资源定位符）是 URI 的子集，需要指定对资源进行操作和获取该资源的方法。  </p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/URI/">URI</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/post/uncategorized/c95d7c6b/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Markdown中文排版规范</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/post/check-learn-JavaScript/e2327a90/">
+                        <span class="hidden-mobile">js里的Map</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "CrA6J2uslOlguiRQgSjT72he-gzGzoHsz",
+          app_key: "Q2oE1R6yBt353jiWMp4FNQsH",
+          placeholder: "发条友善的评论吧（支持md格式）...",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: true,
+          emojiCDN: "//i0.hdslb.com/bfs/emote/",
+          emojiMaps: {"tv_白眼":"c1d59f439e379ee50eef488bcb5e5378e5044ea4.png","tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_难过":"87f46748d3f142ebc6586ff58860d0e2fc8263ba.png","tv_生气":"26702dcafdab5e8225b43ffd23c94ac1ff932654.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_斜眼笑":"911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_疑问":"0793d949b18d7be716078349c202c15ff166f314.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_鼓掌":"1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png","tv_抠鼻":"c666f55e88d471e51bbd9fab9bb308110824a6eb.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_调皮":"b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png","tv_笑哭":"1abc628f6d4f4caf9d0e7800878f4697abbc8273.png","tv_晕":"5443c22b4d07fb1907ccc610c8e6db254f2461b7.png","tv_点赞":"f85c354995bd99e28fc76c869bfe42ba6438eff4.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_睡着":"8b196675b53af58264f383c50ad0945048290b33.png","tv_色":"61822c7e9aae5da76475e7892534545336b23a6f.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_无奈":"ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_流汗":"cead1c351ab8d79e9f369605beb90148db0fbed3.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_抓狂":"fe31c08edad661d63762b04e17b8d5ae3c71a757.png","tv_黑人问号":"45821a01f51bc867da9edbaa2e070410819a95b2.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_打脸":"56ab10b624063e966bfcb76ea5dc4794d87dfd47.png","tv_闭嘴":"c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png","tv_鄙视":"6e72339f346a692a495b123174b49e4e8e781303.png","tv_腼腆":"89712c0d4af73e67f89e35cbc518420380a7f6f4.png","tv_馋":"fc7e829b845c43c623c8b490ee3602b7f0e76a31.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_生病":"8b0ec90e6b86771092a498c54f09fc94621c1900.png","tv_流鼻血":"c32d39db2737f89b904ca32700d140a9241b0767.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_流泪":"7e71cde7858f0cd50d74b0264aa26db612a8a167.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_皱眉":"72ccad6679fea0d14cce648b4d818e09b8ffea2d.png","tv_鬼脸":"0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png","tv_调侃":"4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png","tv_目瞪口呆":"0b8cb81a68de5d5365212c99375e7ace3e7891b7.png"},
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <!-- <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a> -->
+      <a id="back-to-top" href="javascript:;" role="button" title="回到顶部"></a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div>&copy;2020 🍊 <a href="" rel="nofollow noopener"><span>Yang Xu</span></a></div> <div> 由 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>  强力驱动 | 主题 -  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<!-- hexo injector body_end start --><script src="/blog/js/mouse-click.js"></script><script src="/blog/js/auto-gray.js"></script><script src="/blog/js/when-blur.js"></script><!-- hexo injector body_end end --></body>
+</html>
