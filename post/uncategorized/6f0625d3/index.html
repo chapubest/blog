@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>关于table标签的样式 - 茶铺的小站</title>
+  <title>关于table标签的边框边距 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="关于table标签的样式">
+            <span class="h2" id="subtitle" title="关于table标签的边框边距">
               
             </span>
 
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      369 字
+      424 字
     </span>
   
 
@@ -249,33 +249,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关于table标签的样式</h1>
+            <h1 style="display: none">关于table标签的边框边距</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：17 天前
+                  本文最后更新于：1 个月前
                 
               </p>
             
             <div class="markdown-body">
-              <p>关于table标签有3个比较特殊的属性来控制样式，分别是<code>border</code>，<code>cellspacing</code>，<code>cellpadding</code>。注意它们都是标签的属性，虽然控制样式但是和css中的属性是不同的。  </p>
-<ul>
-<li><code>border</code><br><code>border</code>属性与css中的<code>border</code>不同。table中的<code>border</code>用来设置表格<strong>是否</strong>有边框：<br><code>border=&quot;0&quot;</code>时表格无边框<br><code>border=其他值</code>时表格有边框，当<code>border=大于1的值</code>时，table边框宽度等于设定值，而table中的单元格td的边框宽度仍然为1  </li>
+              <blockquote>
+<p><code>border</code>，<code>cellspacing</code>，<code>cellpadding</code>均已废弃，不建议继续使用它们和其他会影响 table 样式的属性。</p>
+</blockquote>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>关于 table 标签有 3 个比较特殊的属性来控制边框边距，分别是 <code>border</code>，<code>cellspacing</code>，<code>cellpadding</code>。注意它们都是标签的属性，虽然控制样式但是和 CSS 中的属性是不同的。</p>
+<h2 id="属性介绍"><a href="#属性介绍" class="headerlink" title="属性介绍"></a>属性介绍</h2><ul>
+<li><code>border</code><br><code>border</code> 属性与 CSS 中的 <code>border</code> 不同。table 中的 <code>border</code> 用来设置表格<strong>是否</strong>有边框：<br><code>border=&quot;0&quot;</code> 时表格无边框<br><code>border=其他值</code> 时表格有边框，当 <code>border=大于1的值</code> 时，table 边框宽度等于设定值，而 table 中的单元格 td 的边框宽度仍然为 1  </li>
 </ul>
 <blockquote>
-<p>许多网站说<code>border=&quot;&quot;</code>时表格无边框，但我实际测试下来是有的，有点奇怪。  </p>
+<p>许多网站说 <code>border=&quot;&quot;</code> 时表格无边框，但我实际测试下来是有的，有点奇怪。  </p>
 </blockquote>
 <ul>
-<li><p><code>cellspacing</code><br>css中不存在该属性，它用来设置单元格之间的距离。  </p>
+<li><p><code>cellspacing</code><br>CSS 中不存在该属性，它用来设置两个单元格之间的距离（垂直和水平方向上）。</p>
 </li>
-<li><p><code>cellpadding</code><br>css中也不存在该属性，它用来设置单元格的内边距，该值默认为1。  </p>
+<li><p><code>cellpadding</code><br>CSS 中也不存在该属性，它用来设置单元格的内边距，该值默认为 1。</p>
 </li>
 </ul>
-<h3 id="如何去除table的默认样式"><a href="#如何去除table的默认样式" class="headerlink" title="如何去除table的默认样式"></a>如何去除table的默认样式</h3><ol>
-<li><p>可以在html中设置 <code>border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;</code>。  </p>
-</li>
-<li><p>也可以在css中设置  </p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">table</span> &#123;
+<h2 id="如何去除-table-的默认样式"><a href="#如何去除-table-的默认样式" class="headerlink" title="如何去除 table 的默认样式"></a>如何去除 table 的默认样式</h2><ol>
+<li>可以在 HTML 中设置 <code>border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;</code>。</li>
+<li>也可以在 CSS 中设置<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">table</span> &#123;
   <span class="hljs-attribute">border-collapse </span>: collapse;
   <span class="hljs-attribute">border-spacing</span>: <span class="hljs-number">0</span>;
 &#125;
@@ -287,16 +288,16 @@
 
 </li>
 </ol>
-<h3 id="关于table的css样式"><a href="#关于table的css样式" class="headerlink" title="关于table的css样式"></a>关于table的css样式</h3><p>在上面的css中有这样两个属性：  </p>
+<h2 id="关于-table-的-CSS-样式"><a href="#关于-table-的-CSS-样式" class="headerlink" title="关于 table 的 CSS 样式"></a>关于 table 的 CSS 样式</h2><p>在上面的 CSS 中有这样两个属性：</p>
 <ul>
-<li><code>border-collapse</code>它有两个值:  </li>
-</ul>
+<li><p><code>border-collapse</code>它有两个值:</p>
 <ol>
-<li>默认为<code>separate</code>，表示table和单元格td的相邻边框独立  </li>
-<li><code>collapse</code>表示相邻边框进行合并  </li>
+<li>默认为 <code>separate</code>，表示 table 和单元格 td 的相邻边框独立</li>
+<li><code>collapse</code> 表示相邻边框进行合并</li>
 </ol>
-<ul>
-<li><code>border-spacing</code>它表示如果边框是独立的，边框在横向和纵向上的间距。它也可以设置两个值，分别作用在横向和纵向上。  </li>
+</li>
+<li><p><code>border-spacing</code> 它表示如果边框是独立的，边框在横向和纵向上的间距。它也可以设置两个值，分别作用在横向和纵向上。  </p>
+</li>
 </ul>
 
             </div>

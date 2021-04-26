@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      327 字
+      395 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      4
        分钟
     </span>
   
@@ -253,19 +253,19 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：17 天前
+                  本文最后更新于：25 天前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>本文将介绍css3中的媒体查询，并简单介绍下前端的响应式布局  </p>
+<p>本文将介绍 CSS3 中的媒体查询，并简单介绍下前端的响应式布局</p>
 </blockquote>
-<h1 id="css3的媒体查询"><a href="#css3的媒体查询" class="headerlink" title="css3的媒体查询"></a>css3的媒体查询</h1><p>通过媒体查询，你可以直接在css中针对不同的媒体类型定义不同的样式。  </p>
+<h1 id="CSS3-的媒体查询"><a href="#CSS3-的媒体查询" class="headerlink" title="CSS3 的媒体查询"></a>CSS3 的媒体查询</h1><p>通过媒体查询，你可以直接在 CSS 中针对不同的媒体类型定义不同的样式。</p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><div class="hljs"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> 媒体类型 <span class="hljs-keyword">and</span>|<span class="hljs-keyword">not</span>|<span class="hljs-keyword">only</span> (媒体功能) &#123;
     <span class="hljs-selector-tag">css-code</span>
 &#125;</code></pre></div>
-<p>媒体类型：  </p>
+<p>媒体类型：</p>
 <table>
 <thead>
 <tr>
@@ -290,7 +290,7 @@
 <td>屏幕阅读器等发声设备</td>
 </tr>
 </tbody></table>
-<p>常见媒体功能：  </p>
+<p>常见媒体功能：</p>
 <table>
 <thead>
 <tr>
@@ -318,12 +318,28 @@
 <td>device-pixel-ratio</td>
 <td>设备上物理像素和设备独立像素（逻辑像素）的比例</td>
 </tr>
+<tr>
+<td>prefers-color-scheme</td>
+<td>用户倾向于选择亮色还是暗色的配色方案</td>
+</tr>
 </tbody></table>
-<h2 id="在js中使用媒体查询"><a href="#在js中使用媒体查询" class="headerlink" title="在js中使用媒体查询"></a>在js中使用媒体查询</h2><p>有些情况下需要在js里进行媒体查询，可以使用<code>window.matchMedia</code>方法，它接受一个字符串表示css@media规则，返回值为一个MediaQueryList对象，该对象包含两个属性：  </p>
+<p>简单的使用示例：  </p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-comment">/* DarkMode适配 */</span>
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-color-scheme:</span> dark) &#123;
+    <span class="hljs-selector-tag">color</span>: <span class="hljs-selector-id">#fff</span>;
+    <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-id">#000</span>;
+&#125;</code></pre></div>
+
+<h2 id="在-JS-中使用媒体查询"><a href="#在-JS-中使用媒体查询" class="headerlink" title="在 JS 中使用媒体查询"></a>在 JS 中使用媒体查询</h2><p>有些情况下需要在 JS 里进行媒体查询，可以使用 <code>window.matchMedia</code> 方法，它接受一个字符串表示 CSS@media 规则，返回值为一个 MediaQueryList 对象，该对象包含两个属性：</p>
 <ul>
-<li><code>media</code>；查询结果的内容  </li>
-<li><code>matches</code>: 是否与当前查询匹配  </li>
+<li><code>media</code>；查询结果的内容</li>
+<li><code>matches</code>: 是否与当前查询匹配</li>
 </ul>
+<p>用法如下：</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">&quot;(prefers-color-scheme: dark)&quot;</span>).matches) &#123;
+    <span class="hljs-comment">// ...夜间模式 逻辑处理</span>
+&#125;</code></pre></div>
+
 <h1 id="参考资料-amp-相关链接"><a href="#参考资料-amp-相关链接" class="headerlink" title="参考资料&amp;相关链接"></a>参考资料&amp;相关链接</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903814332432397">前端响应式布局原理与方案 from 掘金</a></li>
 </ul>
@@ -352,7 +368,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/post/check-learn-CSS/a02903b9/">
+                      <a href="/blog/post/learn-CSS/a02903b9/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">box-shadow</span>
                         <span class="visible-mobile">上一篇</span>

@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>box-shadow - 茶铺的小站</title>
+  <title>做个刮一刮了解canvas - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="box-shadow">
+            <span class="h2" id="subtitle" title="做个刮一刮了解canvas">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-11 09:44" pubdate>
-        2021年1月11日 上午
+      <time datetime="2021-03-11 15:56" pubdate>
+        2021年3月11日 下午
       </time>
     </span>
   
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      310 字
+      798 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      11
        分钟
     </span>
   
@@ -249,55 +249,123 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">box-shadow</h1>
+            <h1 style="display: none">做个刮一刮了解canvas</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：17 天前
+                  本文最后更新于：1 个月前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>本文将详细介绍css中的box-shadow属性，彻底搞定阴影。  </p>
+<p>本文将介绍实现一个刮一刮 Demo，帮助了解前端得画布元素。</p>
 </blockquote>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p><code>box-shadow</code>是<strong>css3新增</strong>的属性，可以在几乎所有元素上添加阴影效果，目前支持所有浏览器。  </p>
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">box-shadow</span>: 水平偏移量 垂直偏移量 模糊半径 扩散半径 颜色;</code></pre></div>
-<p>当然像模糊半径、扩散半径等值都是可以缺省的，默认为0。<br>使用示例：  </p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">2px</span> <span class="hljs-number">3px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fdfdfd</span>; &#125;</code></pre></div>
-<p>默认生成外阴影，若想要生成内阴影可以加上<code>inset</code>，此时阴影位于边框子内，背景之上，内容之下。  </p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">2px</span> <span class="hljs-number">3px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fdfdfd</span> inset; &#125;</code></pre></div>
-<p>你可以为元素同时添加多个阴影，使用逗号将每个阴影规则隔开。阴影是从最后一个开始绘制的，所以最前面的阴影位于最上层。  </p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
-    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">2px</span> <span class="hljs-number">3px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fff</span>, <span class="hljs-number">3px</span> <span class="hljs-number">4px</span> <span class="hljs-number">10px</span> <span class="hljs-number">0</span> red;
+<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><h2 id="布局和样式"><a href="#布局和样式" class="headerlink" title="布局和样式"></a>布局和样式</h2><p>将一个刮一刮分为两层，<code>.award</code> 层用来展示奖品内容，<code>.coating</code> 层使用画布元素用来表示涂层。当然你也可以只使用 <code>canvas</code> 展示涂层和奖品，但是我更喜欢分别展示方式。因为将奖品区域独立出来，布局上会更加方便。另外你会发现我将奖品区域设置样式不可见，这是由于网络加载情况和绘制时机可能会导致奖品区域在涂层绘制前先展示出来，你应该不希望这种情况发生。  </p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;scrape-award&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;award&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;visibility: hidden;&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>奖品是什么呢<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;coating&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.scrape-award</span> &#123;
+    <span class="hljs-attribute">position</span>: relative;
+&#125;
+<span class="hljs-selector-class">.scrape-award</span> <span class="hljs-selector-class">.award</span> &#123;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">150px</span>;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
+&#125;
+<span class="hljs-selector-class">.scrape-award</span> <span class="hljs-selector-class">.coating</span> &#123;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">2</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
-<p>可以利用这一点实现元素多层边框的效果。  </p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><code>box-shadow</code>的默认取值为<code>none</code>。它也支持<strong>全局关键字</strong>：  </p>
-<ul>
-<li><code>inhreit</code>表示从父元素继承</li>
-<li><code>initial</code>表示设置为默认值</li>
-<li><code>unset</code>表示不设置，效果等同于<code>initial</code>，因为<code>box-shadow</code>是非继承属性。</li>
-</ul>
+
+<h2 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h2><p>下面的函数中涉及的全局变量：  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> canvas = <span class="hljs-literal">null</span>; <span class="hljs-comment">// canvas对象</span>
+<span class="hljs-keyword">var</span> ctx = <span class="hljs-literal">null</span>; <span class="hljs-comment">// 画布上下文</span>
+<span class="hljs-keyword">var</span> width = <span class="hljs-number">0</span>; <span class="hljs-comment">// 画布宽度</span>
+<span class="hljs-keyword">var</span> height = <span class="hljs-number">0</span>; <span class="hljs-comment">// 画布高度</span></code></pre></div>
+<p>更好的做法是将将整个刮一刮封装成一个类，这里为了方便，直接声明为全局变量，并不推荐这种方式。</p>
+<h3 id="绘制涂层"><a href="#绘制涂层" class="headerlink" title="绘制涂层"></a>绘制涂层</h3><div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> awardDom = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">&quot;award&quot;</span>)[<span class="hljs-number">0</span>];
+    canvas = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">&quot;coating&quot;</span>)[<span class="hljs-number">0</span>];
+    ctx = canvas.getContext(<span class="hljs-string">&quot;2d&quot;</span>);
+    <span class="hljs-keyword">var</span> rect = awardDom.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    <span class="hljs-comment">// 设置画布大小</span>
+    canvas.width = width;
+    canvas.height = height;
+    <span class="hljs-comment">// 绘制涂层</span>
+    scrapeAward.ctx.fillStyle = <span class="hljs-string">&quot;#eee&quot;</span>;
+    scrapeAward.ctx.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, scrapeAward.width, scrapeAward.height);
+    <span class="hljs-comment">// 绘制涂层上的文字</span>
+    scrapeAward.ctx.fillStyle = <span class="hljs-string">&quot;#000&quot;</span>;
+    scrapeAward.ctx.font=<span class="hljs-string">&quot;20px Arial&quot;</span>;
+    scrapeAward.ctx.fillText(<span class="hljs-string">&quot;测试文本测试文本测试文本测试文&quot;</span>, <span class="hljs-number">0</span>, height/<span class="hljs-number">2</span>-<span class="hljs-number">10</span>, width);
+    <span class="hljs-comment">// 显示奖品层</span>
+    awardDom.style.visibility = <span class="hljs-string">&quot;&quot;</span>;
+&#125;</code></pre></div>
+
+<h3 id="处理-touch-事件"><a href="#处理-touch-事件" class="headerlink" title="处理 touch 事件"></a>处理 touch 事件</h3><p>当用户在涂层上滑动时，需要将抹除对应坐标的涂层，所以要在响应 canvas 的 <code>touchmove</code> 事件之前，将绘制新图形时的合成操作类型修改为 <code>destination-out</code>。  </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    ...
+    ctx.globalCompositeOperation = <span class="hljs-string">&quot;destination-out&quot;</span>;
+    canvas.addEventListener(<span class="hljs-string">&quot;touchmove&quot;</span>, touchMove);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">touchMove</span>(<span class="hljs-params">e</span>) </span>&#123;
+    <span class="hljs-comment">/* 阻止默认事件 */</span>
+    e.preventDefault();
+    <span class="hljs-keyword">if</span> (e.changedTouches) &#123;
+        <span class="hljs-keyword">let</span> rect = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">&quot;award&quot;</span>)[<span class="hljs-number">0</span>].getBoundingClientRect();
+        <span class="hljs-keyword">let</span> pos = e.changedTouches[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">let</span> x = pos.clientX - rect.x,
+            y = pos.clientY - rect.y;
+        scrapeAward.ctx.beginPath();
+        scrapeAward.ctx.arc(x, y, <span class="hljs-number">20</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>);
+        scrapeAward.ctx.fill();
+    &#125;
+&#125;</code></pre></div>
+
+<h3 id="判断已刮涂层百分比"><a href="#判断已刮涂层百分比" class="headerlink" title="判断已刮涂层百分比"></a>判断已刮涂层百分比</h3><p>一般我们需要在用户刮出大部分内容后，自动清除剩下的涂层，所以需要判断已刮涂层的百分比。<br>可以通过 <code>getImageData</code> 获取画布像素矩阵数据，然后判断其中的不透明度等于 0 即为透明，这里取 256 的一半 128 即为半透明。</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">/* 去除全部涂层 */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleFilledPercentage</span>(<span class="hljs-params">percentage</span>) </span>&#123;
+    percentage = percentage || <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">parseInt</span>(percentage) &gt; <span class="hljs-number">50</span>) &#123;
+        ctx.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, width, height);
+        <span class="hljs-comment">/* 或者直接删除画布 */</span>
+        canvas.remove();
+    &#125;
+&#125;
+<span class="hljs-comment">/* 获取已刮得涂层百分比 */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFilledPercentage</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">let</span> imgData = ctx.getImageData(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, width, height);
+    <span class="hljs-keyword">let</span> pixels = imgData.data;
+    <span class="hljs-keyword">let</span> transPixels = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">3</span>; i &lt; pixels.length; i += <span class="hljs-number">4</span>) &#123;
+        <span class="hljs-keyword">if</span> (pixels[i] &lt; <span class="hljs-number">128</span>) &#123;
+            transPixels.push(pixels[i]);
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> transPixels.length / (pixels.length / <span class="hljs-number">4</span>);
+&#125;</code></pre></div>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/categories/check-learn-CSS/">查缺补漏CSS</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/CSS/">CSS</a>
+                      <a class="hover-with-bg" href="/blog/tags/JavaScript/">JavaScript</a>
                     
-                      <a class="hover-with-bg" href="/blog/tags/box-shadow/">box-shadow</a>
+                      <a class="hover-with-bg" href="/blog/tags/canvas/">canvas</a>
                     
                   </div>
                 
@@ -310,9 +378,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/post/check-learn-CSS/5fb51a22/">
+                      <a href="/blog/post/uncategorized/d044d5d4/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">css中的变量</span>
+                        <span class="hidden-mobile">session</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -320,8 +388,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/post/uncategorized/280948df/">
-                        <span class="hidden-mobile">媒体查询与响应式布局</span>
+                      <a href="/blog/post/uncategorized/b5fd8417/">
+                        <span class="hidden-mobile">文本溢出省略</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

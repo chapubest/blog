@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>js里的Map - 茶铺的小站</title>
+  <title>Hexo问题汇总踩坑 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="js里的Map">
+            <span class="h2" id="subtitle" title="Hexo问题汇总踩坑">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-25 15:59" pubdate>
-        2021年1月25日 下午
+      <time datetime="2021-03-09 11:50" pubdate>
+        2021年3月9日 中午
       </time>
     </span>
   
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      558 字
+      100 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      1
        分钟
     </span>
   
@@ -249,136 +249,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js里的Map</h1>
+            <h1 style="display: none">Hexo问题汇总踩坑</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：17 天前
+                  本文最后更新于：2 个月前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>本文介绍 JavaScript 中的 <code>Map</code></p>
+<p>本文将汇总我在 Hexo 上所遇到的坑，持续更新。</p>
 </blockquote>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p><code>Map</code> 是 js 原生支持的对象，用于保存键值对，并且是有序的。<br><code>Map</code> 对象在迭代时按插入顺序返回一个 <code>[key, value]</code> 数组。<br>任何值都可以作为 <code>Map</code> 的键或值，其中键要求 <em>唯一</em> 。键通过运算符 <code>===</code> 比较是否相同，其中特殊的是虽然 <code>NaN !== NaN</code> ，但是 <code>NaN</code> 也不可以重复。</p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>通过 <code>new</code> 实例化一个 <code>Map</code> 对象。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p><code>size</code> 属性表示 Map 对象的条目数。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>作用</th>
-<th>返回值</th>
-<th>备注</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>clear</code></td>
-<td>移出对象所有键值对</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>delete(key)</code></td>
-<td>删除key对应的键值对</td>
-<td>若存在对应key返回<code>true</code>，否则返回<code>false</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>forEach(callback)</code></td>
-<td>按照插入顺序为每一对键值对调用一次callback</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>get(key)</code></td>
-<td>获取键对应值</td>
-<td>键存在返回对应值，否则返回<code>undefined</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>set(key, value)</code></td>
-<td>设置键对应值</td>
-<td>返回该<code>Map</code>对象</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>has(key)</code></td>
-<td>判断对象是否包含对应键</td>
-<td>键存在返回<code>true</code>，否则返回<code>false</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>keys</code></td>
-<td>按照插入顺序获得所有的键</td>
-<td>返回一个新的<code>Iterator</code>对象</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>values</code></td>
-<td>按照插入顺序获得所有的值</td>
-<td>返回一个新的<code>Iterator</code>对象</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="Map-与-Array-的关系"><a href="#Map-与-Array-的关系" class="headerlink" title="Map 与 Array 的关系"></a><code>Map</code> 与 <code>Array</code> 的关系</h1><p>可以通过一个二维键值对数组构造一个 <code>Map</code> 对象：</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> kvArray = [[<span class="hljs-string">&quot;keyone&quot;</span>,<span class="hljs-string">&quot;valueone&quot;</span>],[<span class="hljs-string">&quot;keytwo&quot;</span>,<span class="hljs-string">&quot;valuetwo&quot;</span>]];
-<span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>(kvArray);</code></pre></div>
-
-<p>因为 <code>Map</code> 是一个可迭代对象，可以使用 <code>Array.from</code> 将其转换为 <code>Array</code> 对象：</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> toArray = <span class="hljs-built_in">Array</span>.from(map);</code></pre></div>
-
-<p>也可以使用 <strong>展开运算符</strong>，简化上面的写法：</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> toArray = [...map];</code></pre></div>
-
-<p>值得注意的是将数组转换为 <code>Map</code> 时，数组中对应键的值重复的项目会被合并，后面的会覆盖前面的，以保证 <code>Map</code> 对象键的唯一。</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> testMap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([
-    [<span class="hljs-number">1</span>,<span class="hljs-string">&quot;valueone&quot;</span>],
-    [<span class="hljs-number">1</span>,<span class="hljs-string">&quot;valuetwo&quot;</span>],
-    [<span class="hljs-number">2</span>,<span class="hljs-string">&quot;valuethree&quot;</span>]
-]);
-<span class="hljs-comment">// testMap的值为 &#123;1 =&gt; &quot;valuetwo&quot;, 2 =&gt; &quot;valuethree&quot;&#125;</span>
-<span class="hljs-keyword">let</span> otherMap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([
-    [<span class="hljs-number">2</span>,<span class="hljs-string">&quot;valuefour&quot;</span>],
-    [<span class="hljs-number">3</span>,<span class="hljs-string">&quot;valuefive&quot;</span>]
-]);
-<span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([...testMap, ...otherMap]);
-<span class="hljs-comment">// map的值为 &#123;1 =&gt; &quot;valuetwo&quot;, 2 =&gt; &quot;valuefour&quot;, 3 =&gt; &quot;valuefive&quot;&#125;</span></code></pre></div>
-
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>不建议为 <code>Map</code> 设置对象属性：</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-map[<span class="hljs-string">&quot;keyone&quot;</span>] = <span class="hljs-number">1</span>;
-<span class="hljs-comment">// 这样做会导致一些错误</span></code></pre></div>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><h2 id="修改-tags-重新部署后发现对应-tag-页-404"><a href="#修改-tags-重新部署后发现对应-tag-页-404" class="headerlink" title="修改 tags 重新部署后发现对应 tag 页 404"></a>修改 tags 重新部署后发现对应 tag 页 404</h2><p>本问题发生在修改文章的 tags 大小写后（例如将 <code>javascript</code> 修改为 <code>JavaScript</code>），而且本地应该是一切正常。<br>解决方法：找到项目目录下的 <code>.deploy_git/.git/config</code> 文件，将 <code>ignorecase</code> 修改为 <code>false</code> 即可。</p>
+<div class="hljs"><pre><code class="hljs diff">[core]
+<span class="hljs-deletion">-	ignorecase = true</span>
+<span class="hljs-addition">+   ignorecase = false</span></code></pre></div>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/blog/categories/check-learn-JavaScript/">查缺补漏JavaScript</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/blog/tags/Hexo/">Hexo</a>
                     
-                      <a class="hover-with-bg" href="/blog/tags/map/">map</a>
+                      <a class="hover-with-bg" href="/blog/tags/blog/">blog</a>
                     
                   </div>
                 
@@ -391,9 +290,9 @@ map[<span class="hljs-string">&quot;keyone&quot;</span>] = <span class="hljs-num
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/post/uncategorized/3636c26e/">
+                      <a href="/blog/post/uncategorized/b5fd8417/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js编码和解码</span>
+                        <span class="hidden-mobile">文本溢出省略</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -401,8 +300,8 @@ map[<span class="hljs-string">&quot;keyone&quot;</span>] = <span class="hljs-num
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/post/uncategorized/Infinity/">
-                        <span class="hidden-mobile">editorconfig不完全指北</span>
+                      <a href="/blog/post/uncategorized/c95d7c6b/">
+                        <span class="hidden-mobile">Markdown中文排版规范</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

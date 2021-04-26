@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      433 字
+      436 字
     </span>
   
 
@@ -253,16 +253,16 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：17 天前
+                  本文最后更新于：2 个月前
                 
               </p>
             
             <div class="markdown-body">
               <blockquote>
-<p>本文将会介绍css3中新增的变量支持  </p>
+<p>本文将会介绍 CSS3 中新增的变量支持</p>
 </blockquote>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>在写css的时候，你一定会遇到某个颜色反复出现的情况，这会让编码及维护成本变得困难。<br>所以css原生支持了变量的定义，让开发效率显著提高。  </p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>变量的定义语法是：<code>--变量名</code>，变量可以是数字字母下划线短横线或者中日韩文，不过还是推荐使用有意义的、规范的命名方式。<br>你可以在任何选择器中定义变量，但是往往会在<code>:root</code>选择器中定义全局变量。因为<code>:root</code>选中文档根元素，所以可以在任何地方使用定义的变量。<br>变量的使用方法也同样简单：<code>var(--变量名, 默认值)</code>。这里的默认值是可选的，当未定义变量时就会使用默认值作为元素属性值。<br>你还可以像控制其他css一样使用js控制变量：  </p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>在写 CSS 的时候，你一定会遇到某个颜色反复出现的情况，这会让编码及维护成本变得困难。<br>所以 CSS 原生支持了变量的定义，让开发效率显著提高。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>变量的定义语法是：<code>--变量名</code>，变量可以是数字字母下划线短横线或者中日韩文，不过还是推荐使用有意义的、规范的命名方式。<br>你可以在任何选择器中定义变量，但是往往会在 <code>:root</code> 选择器中定义全局变量。因为 <code>:root</code> 选中文档根元素，所以可以在任何地方使用定义的变量。<br>变量的使用方法也同样简单：<code>var(--变量名, 默认值)</code>。这里的默认值是可选的，当未定义变量时就会使用默认值作为元素属性值。<br>你还可以像控制其他 CSS 一样使用 JS 控制变量：  </p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">// 获取dom节点内联css变量</span>
 element.style.getPropertyValue(<span class="hljs-string">&quot;--my-var&quot;</span>);
 <span class="hljs-comment">// 获取dom节点内部|外联css变量</span>
@@ -275,8 +275,8 @@ element.style.setProperty(<span class="hljs-string">&quot;--my-var&quot;</span>,
     <span class="hljs-attribute">--size</span>: <span class="hljs-number">20</span>;
     <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">var</span>(--size)<span class="hljs-built_in">px</span>;
 &#125;</code></pre></div>
-此时的p标签的<code>font-size</code>并不是<code>20px</code>，这是因为变量后面会尾随一个空格，上面的例子实际效果等同于：<code>font-size: 20 px;</code>，所以不要妄想用一个值来贯彻整个代码啦。<br>另外，你也可以在变量中使用变量或者在<code>calc()</code>中使用变量完成更为复杂的效果。  </li>
-<li>css变量是大小写敏感的，<code>--main-color</code>和<code>--mainColor</code>是不一样的。  </li>
+此时的 p 标签的 <code>font-size</code> 并不是 <code>20px</code>，这是因为变量后面会尾随一个空格，上面的例子实际效果等同于：<code>font-size: 20 px;</code>，所以不要妄想用一个值来贯彻整个代码啦。<br>另外，你也可以在变量中使用变量或者在 <code>calc()</code> 中使用变量完成更为复杂的效果。  </li>
+<li>css变量是大小写敏感的，<code>--main-color</code> 和 <code>--mainColor</code> 是不一样的。</li>
 </ol>
 
             </div>
@@ -287,7 +287,7 @@ element.style.setProperty(<span class="hljs-string">&quot;--my-var&quot;</span>,
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/blog/categories/check-learn-CSS/">查缺补漏CSS</a>
+                      <a class="hover-with-bg" href="/blog/categories/learn-CSS/">CSS查缺补漏</a>
                     
                   </div>
                 
@@ -318,7 +318,7 @@ element.style.setProperty(<span class="hljs-string">&quot;--my-var&quot;</span>,
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/post/check-learn-CSS/a02903b9/">
+                      <a href="/blog/post/learn-CSS/a02903b9/">
                         <span class="hidden-mobile">box-shadow</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
