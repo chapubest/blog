@@ -30,7 +30,7 @@
   <meta name="description" content="chapu&#39;s blog">
   <meta name="author" content="Yang Xu">
   <meta name="keywords" content="blogs,chapu,前端,web,博客,茶铺">
-  <title>文本溢出省略 - 茶铺的小站</title>
+  <title>文本换行和溢出省略 - 茶铺的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="文本溢出省略">
+            <span class="h2" id="subtitle" title="文本换行和溢出省略">
               
             </span>
 
@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      102 字
+      125 字
     </span>
   
 
@@ -249,11 +249,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">文本溢出省略</h1>
+            <h1 style="display: none">文本换行和溢出省略</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 个月前
+                  本文最后更新于：3 天前
                 
               </p>
             
@@ -277,6 +277,12 @@
     <span class="hljs-attribute">-webkit-box-orient</span>: vertical;
     <span class="hljs-attribute">overflow</span>: hidden;
     <span class="hljs-attribute">text-overflow</span>: ellipsis;
+&#125;</code></pre></div>
+
+<h1 id="显示文本内容中的换行"><a href="#显示文本内容中的换行" class="headerlink" title="显示文本内容中的换行"></a>显示文本内容中的换行</h1><div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;
+    <span class="hljs-attribute">white-space</span>: pre-wrap;
+    <span class="hljs-comment">/* 或者 */</span>
+    <span class="hljs-attribute">white-space</span>: pre-line;
 &#125;</code></pre></div>
 
             </div>

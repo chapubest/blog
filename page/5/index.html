@@ -206,6 +206,148 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/blog/post/uncategorized/63ee94ee/">js事件冒泡</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/63ee94ee/">
+          
+          
+            
+          
+          js具有事件冒泡机制，所谓事件冒泡机制就是js事件是从内向外冒泡的，子节点触发事件后会向父节点触发同名事件，直到dom根节点。举个栗子:  
+&lt;script&gt;
+  $(function() &#123;
+    $(&#x27;.outer&#x27;).on(&#x27;click&#x27;, function()&#123;
+      console.log(&#x27;我是最
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-11 11:11" pubdate>
+              2020-09-11
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/1986879b/">git中容易搞错的命令</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/1986879b/">
+          
+          
+            
+          
+          ❀❀持续更新❀❀  
+git fetch 和 git pull一句话总结  
+
+git fetch是将远程主机的最新内容拉取到本地  
+git pull是将远程主机最新内容拉取到本地并自动合并，即git pull = git fetch + git merge，当然产生冲突时，需要手动解决冲突。
+
+git merge 和 git rebase其他学习git资源
+廖雪峰大大的git教程这个无需多言，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-08 15:10" pubdate>
+              2020-09-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/3320875d/">js中的奇怪知识</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/3320875d/">
+          
+          
+            
+          
+          变量提升先看荔枝：  
+console.log(a);
+var a = &quot;hello&quot;;
+上面的运行结果会输出undefined，这是因为，js会先解析代码，并将所有变量的声明语句提升到代码头部执行，这就是变量提升。下面的代码与上面相同：  
+var a;
+console.log(a);
+a = &quot;hello&quot;;
+
+js中函数也被视为一种值，函数的声明语句同
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-07 10:29" pubdate>
+              2020-09-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/blog/post/uncategorized/de88c4c0/">eval和JSON.parse</a>
       </h1>
 
@@ -353,19 +495,14 @@ JSON.parseJSON.parse()对于需要解析的字符串要求比较严格：
           
             
           
-          介绍正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式。它在字符串处理中有着非常强大的用处、这很多语言中都有对正则的支持。    
+          
+本文将介绍正则表达式以及在 JS 中如何使用它
 
-英语 regluar expression，常简写为 regex、regexp、REjs中的正则表达式通过regexp对象表示  
+正则表达式正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式，简单的说就是用来定义一些字符串的规则。它在字符串处理中有着非常强大的用处，并且这很多语言中都有对正则的支持。
 
-创建
-通过//  
+英语 regluar expression，常简写为 regex、regexp、RE
 
-/pattern/attributes
-
-
-通过实例  
-
-new RegExp(pattern, 
+正则语法字母 a 或字母 b：写法一 a|b；写法二 [ab]任意小写字母：
         </a>
       </p>
 
@@ -535,91 +672,11 @@ article h5新增标签 作为特殊section，拥有更为明确的语义 表示�
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/8385e82d/">迁移后的第一篇</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/8385e82d/">
-          
-          
-            
-          
-          小声bb下如果看到这段话，就证明博客可以正常运行啦，(●ˇ∀ˇ●)。
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-05-30 20:33" pubdate>
-              2020-05-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/29176fe/">论文基本格式及内容</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/29176fe/">
-          
-          
-            
-          
-          写在前面近期导师进行了一次指导，讲的主要内容是论文的基本组成部分和格式要求。大部分内容其实都有了解，但是实际写论文的过程中，还是有可能会忽视。整理下来，加深记忆也方便随时查看。本文根据当时记的笔记进行整理。
-特别注意
-英文逗号后面加空格2.  变量要用斜体表示，当然类似PI的变量也可以不斜体 PI不应该是常量吗，可能是当时写错了
-每段首行要缩进2字符
-论文采用 1、 1) ① a) 标识各级标题，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-14 20:34" pubdate>
-              2020-01-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/paper/">论文</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/4/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/blog/page/4/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/6/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

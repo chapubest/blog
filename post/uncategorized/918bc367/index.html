@@ -209,7 +209,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      962 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      11
        分钟
     </span>
   
@@ -253,45 +253,69 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 个月前
+                  本文最后更新于：4 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式。它在字符串处理中有着非常强大的用处、这很多语言中都有对正则的支持。    </p>
-<blockquote>
-<p>英语 regluar expression，常简写为 regex、regexp、RE<br>js中的正则表达式通过regexp对象表示  </p>
+              <blockquote>
+<p>本文将介绍正则表达式以及在 JS 中如何使用它</p>
 </blockquote>
-<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><ol>
-<li>通过<code>//</code>  </li>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式，使用一个字符串描述、匹配某个规则的字符串搜索模式，简单的说就是用来定义一些字符串的规则。它在字符串处理中有着非常强大的用处，并且这很多语言中都有对正则的支持。</p>
+<blockquote>
+<p>英语 regluar expression，常简写为 regex、regexp、RE</p>
+</blockquote>
+<h2 id="正则语法"><a href="#正则语法" class="headerlink" title="正则语法"></a>正则语法</h2><p>字母 a 或字母 b：写法一 <code>a|b</code>；写法二 <code>[ab]</code><br>任意小写字母：<code>[a-z]</code><br>排除字母 a：<code>[^a]</code></p>
+<h2 id="常见正则举例"><a href="#常见正则举例" class="headerlink" title="常见正则举例"></a>常见正则举例</h2><p>简单合法手机号检查</p>
+<div class="hljs"><pre><code class="hljs js">/^<span class="hljs-number">1</span>[<span class="hljs-number">3</span>-<span class="hljs-number">9</span>][<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]&#123;<span class="hljs-number">9</span>&#125;$/</code></pre></div>
+
+<p>简单合法电子邮箱地址检查</p>
+<div class="hljs"><pre><code class="hljs js">/^\w&#123;<span class="hljs-number">3</span>,&#125;(\.\w+)*@[A-z0-<span class="hljs-number">9</span>]+(\.[A-z]&#123;<span class="hljs-number">2</span>,<span class="hljs-number">5</span>&#125;)&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;$/</code></pre></div>
+
+<h1 id="JavaScript-中的正则表达式"><a href="#JavaScript-中的正则表达式" class="headerlink" title="JavaScript 中的正则表达式"></a>JavaScript 中的正则表达式</h1><p>JS 中的通过内置对象 <code>RegExp</code> 支持正则表达式</p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
+<li>通过字面量斜杠(<code>/</code>)包围</li>
 </ol>
 <div class="hljs"><pre><code class="hljs js">/pattern/attributes</code></pre></div>
 
 <ol start="2">
-<li>通过实例  </li>
+<li>通过构造函数传参</li>
 </ol>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(pattern, attributes);</code></pre></div>
-<p>attributes 为可选字符串，包括”g”,”i”,”m”，分别指代全局匹配、区分大小写和匹配多行，当然你也可以同时使用多个参数。  </p>
-<h1 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h1><ol>
-<li>^和$<br>正则表达式中使用^和$分别表示匹配字符串的开头与结尾，举个荔枝  <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^test$/</span>;
+
+<p>attributes 为可选字符串，包括”g”,”i”,”m”，分别指代全局匹配、区分大小写和匹配多行，当然你也可以同时使用多个参数。</p>
+<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><ol>
+<li><code>^</code> 和 <code>$ </code><br>正则表达式中使用 <code>^</code> 和 <code>$</code> 分别表示匹配字符串的开头与结尾，举个荔枝</li>
+</ol>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^test$/</span>;
 re.test(<span class="hljs-string">&quot;otest&quot;</span>);
 re.test(<span class="hljs-string">&quot;testp&quot;</span>);
 <span class="hljs-comment">// 返回 false</span>
 re.test(<span class="hljs-string">&quot;test&quot;</span>);
-<span class="hljs-comment">// 返回 true</span></code></pre></div></li>
-<li>括号<br>使用()可以获得括号内的匹配字符串，可以方便的获取有效信息，举个荔枝   <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/num_(\d+)/</span>;
+<span class="hljs-comment">// 返回 true</span></code></pre></div>
+
+<ol start="2">
+<li>括号<br>使用 <code>()</code> 可以获得括号内的匹配字符串，可以方便的获取有效信息，举个荔枝</li>
+</ol>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/num_(\d+)/</span>;
 re.exec(<span class="hljs-string">&quot;name num_9909&quot;</span>);
-<span class="hljs-comment">// 返回 [&quot;num_9909&quot;, &quot;9909&quot;, ...]</span></code></pre></div></li>
-<li><code>a(?=b)</code>表示后面是字母b的字母a<br><code>(?&lt;=b)a</code>表示前面是字母b的字母a<br><code>a(?!b)</code>表示后面不是字母b的字母a<br><code>(?&lt;!b)a</code>表示前面不是字母b的字母a<br><code>()</code>会捕获分组并保存分组匹配的值<br><code>(?:)</code>不会保存分组匹配的值<br>举个例子：将数组<code>1123000</code>格式化成<code>1,123,000</code>  <div class="hljs"><pre><code class="hljs js"><span class="hljs-string">&quot;1123000&quot;</span>.replace(<span class="hljs-regexp">/\B(?=(?:\d&#123;3&#125;)+(?!\d))/g</span>, <span class="hljs-string">&quot;,&quot;</span>)</code></pre></div></li>
-<li><code>\b</code>匹配单词边界、字与空格之间的位置<br><code>\B</code>匹配非单词边界  </li>
+<span class="hljs-comment">// 返回 [&quot;num_9909&quot;, &quot;9909&quot;, ...]</span></code></pre></div>
+
+<ol start="3">
+<li><code>a(?=b)</code>表示后面是字母 b 的字母 a<br> <code>(?&lt;=b)a</code>表示前面是字母 b 的字母 a<br> <code>a(?!b)</code>表示后面不是字母 b 的字母 a<br> <code>(?&lt;!b)a</code>表示前面不是字母 b 的字母 a<br> <code>()</code>会捕获分组并保存分组匹配的值<br> <code>(?:)</code>不会保存分组匹配的值<br> 举个例子：将数字字符串 1123000 格式化成 1,123,000</li>
 </ol>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h2><ol>
-<li><p><code>test</code><br>功能：检索字符串是否匹配模式<br>成功返回：<code>true</code><br>失败返回：<code>false</code>   </p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-string">&quot;1123000&quot;</span>.replace(<span class="hljs-regexp">/\B(?=(?:\d&#123;3&#125;)+(?!\d))/g</span>, <span class="hljs-string">&quot;,&quot;</span>);</code></pre></div>
+
+<ol start="4">
+<li><code>\b</code> 匹配单词边界、字与空格之间的位置<br> <code>\B</code> 匹配非单词边界</li>
+</ol>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h3><ol>
+<li><p><code>test</code><br>功能：检索字符串是否匹配模式<br>成功返回：<code>true</code><br>失败返回：<code>false</code></p>
 </li>
-<li><p><code>exec</code><br>功能：检索字符串中指定值<br>成功返回：数组<br>失败返回：<code>null</code>   </p>
+<li><p><code>exec</code><br>功能：检索字符串中指定值<br>成功返回：数组<br>失败返回：<code>null</code></p>
 </li>
 </ol>
-<p>对于加了<code>g</code>标识符的正则表达式，<code>exec</code>和<code>test</code>每次调用会从上次捕获结尾索引开始接着匹配，直到找不到匹配项，你可以通过调用regexp对象的<code>lastIndex</code>来查看下次匹配的起始位置。举个荔枝：  </p>
+<p>对于加了 <code>g</code> 标识符的正则表达式，<code>exec</code> 和 <code>test</code> 每次调用会从上次捕获结尾索引开始接着匹配，直到找不到匹配项，你可以通过调用 <code>RegExp</code> 对象的 <code>lastIndex</code> 来查看下次匹配的起始位置。举个荔枝：</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/ac/g</span>,
     str = <span class="hljs-string">&quot;gac uai bbacd poac&quot;</span>;
 <span class="hljs-comment">// re.lastIndex当前值为0</span>
@@ -304,15 +328,11 @@ re.exec(str);
 re.exec(str);
 <span class="hljs-comment">// 返回null re.lastIndex当前值为0</span></code></pre></div>
 
-<h2 id="String支持正则表达式方法"><a href="#String支持正则表达式方法" class="headerlink" title="String支持正则表达式方法"></a>String支持正则表达式方法</h2><ol>
-<li><p><code>search</code><br>功能：检索字符串中的子串<br>成功返回：第一个匹配的子串的起始位置<br>失败返回：<code>-1</code>  </p>
-</li>
-<li><p><code>match</code><br>功能：检索字符串中指定值<br>成功返回：匹配数组<br>失败返回：<code>null</code>  </p>
-</li>
-<li><p><code>replace</code><br>功能：使用字符串替换匹配子串<br>成功返回：新字符串  </p>
-</li>
-<li><p><code>split</code><br>功能：将字符串分割为字符串数组<br>成功返回：字符串数组  </p>
-</li>
+<h3 id="String-对象支持正则表达式的方法"><a href="#String-对象支持正则表达式的方法" class="headerlink" title="String 对象支持正则表达式的方法"></a>String 对象支持正则表达式的方法</h3><ol>
+<li><code>search</code><br>功能：检索字符串中的子串<br>成功返回：第一个匹配的子串的起始位置<br>失败返回：<code>-1</code><br>标识符 <code>g</code> 对该方法是无效的</li>
+<li><code>match</code><br>功能：检索字符串中指定值并提取出来<br>成功返回：匹配到的内容的数组<br>失败返回：<code>null</code><br>该方法默认返回第一个符合要求的内容，添加标识符 <code>g</code> 可以进行全局匹配</li>
+<li><code>replace</code><br>功能：将字符串中的指定内容替换为新内容<br>成功返回：替换后的新字符串<br>该方法默认只会替换第一个符合要求的内容，添加标识符 <code>g</code> 可以进行全局替换</li>
+<li><code>split</code><br>功能：将字符串分割为字符串数组<br>成功返回：字符串数组</li>
 </ol>
 
             </div>

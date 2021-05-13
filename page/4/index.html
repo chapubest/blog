@@ -206,6 +206,155 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/blog/post/uncategorized/68efd8d6/">mongoDB初探</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/68efd8d6/">
+          
+          
+            
+          
+          ❀❀持续更新❀❀  
+介绍SQL&amp;NoSQL
+SQL是结构化查询语句的缩写NoSQL = not only SQL 用来泛指非关系型数据库  
+
+相信你已经对关系型数据库有了一点的了解，也用其开发过各种系统。非关系型数据库和它最显著的区别就是，去掉了数据之间的关联。回忆一下，在使用关系型数据库时，要考虑各种主键，外键，候选键，还要对表结构进行优化，考虑删除更新时的依赖，非常复杂。去掉数据关
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-30 16:01" pubdate>
+              2020-09-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/database/">数据库</a>
+            
+              <a href="/blog/tags/NoSQL/">NoSQL</a>
+            
+              <a href="/blog/tags/MongoDB/">MongoDB</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/dd3c08c0/">解决弹出层的滚动页面bug</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/dd3c08c0/">
+          
+          
+            
+          
+          ❀❀有空更新❀❀  
+我们常常会在body下设置一个全屏显示的元素作为弹出层的底层，或是通过相对body的绝对定位或是fixed，在上面实现提示信息和对话框等功能。这个弹出层通常是需要阻止用户对内容的操作的，因为h5中一般情况下只会触发最上面元素的事件，所以大多数场景下都可以阻止内容层事件。但是对于滚动事件，有一点需要注意。如果内容层的高度将body的高度撑高，导致body高度大于视口高度，此时在
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-22 13:23" pubdate>
+              2020-09-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/blog/tags/HTML/">HTML</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/post/uncategorized/d7bdf81a/">Markdown学习笔记</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/blog/post/uncategorized/d7bdf81a/">
+          
+          
+            
+          
+          
+本文记录下 Markdown 中的小知识，博客小白，根据情况进行补充。  
+
+插入代码Markdown 可以方便的实现代码引用
+单行代码通过反引号`包裹：
+`php` 是世界上最好的语言，「狗头」。
+
+代码块通过三个反引号包裹代码块：
+```type
+code
+code
+code
+```
+
+本博客使用的渲染器，代码高亮效果像是这样：
+var f1 = function(param) &#123;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-21 14:02" pubdate>
+              2020-09-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/Markdown/">Markdown</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/blog/post/uncategorized/21db94ec/">git学习笔记</a>
       </h1>
 
@@ -215,7 +364,16 @@
           
             
           
-          提交
+          
+本文将介绍 Git 中的基本功能和常用命令
+
+创建本地在该文件夹内创建一个新的本地仓库（会在该文件夹内生成一个 .git 隐藏文件夹）。
+git init
+
+从远程仓库克隆将远程仓库克隆到该文件夹内。
+git clone git@host:user/repository.git
+
+提交
 在提交时输入多行信息
 
 git commit -m &quot;第一行
@@ -223,13 +381,7 @@ git commit -m &quot;第一行
 第三行&quot;
 
 
-修改刚刚最后一次提交的注释
-
-git commit --amend
-
-更多内容可以参考 https://www.jianshu.com/p/098d85a58bf1  
-撤销
-撤销当前工作区的修改未 add 到暂存区，则撤销回和版本库一样，add 到暂存区后又做修改，则撤销回上一次 add
+修改刚
         </a>
       </p>
 
@@ -539,153 +691,11 @@ borderborder 属性与 CSS 中的 b
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/63ee94ee/">js事件冒泡</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/63ee94ee/">
-          
-          
-            
-          
-          js具有事件冒泡机制，所谓事件冒泡机制就是js事件是从内向外冒泡的，子节点触发事件后会向父节点触发同名事件，直到dom根节点。举个栗子:  
-&lt;script&gt;
-  $(function() &#123;
-    $(&#x27;.outer&#x27;).on(&#x27;click&#x27;, function()&#123;
-      console.log(&#x27;我是最
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-11 11:11" pubdate>
-              2020-09-11
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/JavaScript/">JavaScript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/1986879b/">git中容易搞错的命令</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/1986879b/">
-          
-          
-            
-          
-          ❀❀持续更新❀❀  
-git fetch 和 git pull一句话总结  
-
-git fetch是将远程主机的最新内容拉取到本地  
-git pull是将远程主机最新内容拉取到本地并自动合并，即git pull = git fetch + git merge，当然产生冲突时，需要手动解决冲突。
-
-git merge 和 git rebase其他学习git资源
-廖雪峰大大的git教程这个无需多言，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-08 15:10" pubdate>
-              2020-09-08
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/Git/">Git</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/post/uncategorized/3320875d/">js中的奇怪知识</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/blog/post/uncategorized/3320875d/">
-          
-          
-            
-          
-          变量提升先看荔枝：  
-console.log(a);
-var a = &quot;hello&quot;;
-上面的运行结果会输出undefined，这是因为，js会先解析代码，并将所有变量的声明语句提升到代码头部执行，这就是变量提升。下面的代码与上面相同：  
-var a;
-console.log(a);
-a = &quot;hello&quot;;
-
-js中函数也被视为一种值，函数的声明语句同
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-07 10:29" pubdate>
-              2020-09-07
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/JavaScript/">JavaScript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/blog/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/5/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/blog/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/5/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
